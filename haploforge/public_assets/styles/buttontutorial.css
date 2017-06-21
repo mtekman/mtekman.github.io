@@ -1,0 +1,137 @@
+
+.buttontutorial {
+	position: absolute;
+  	max-width: 230px;
+	background: yellow;
+	border: 2px solid #6b6969;
+	border-radius: 10px;
+	margin-left: 0px;
+	margin-right:0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	transform: translateX(-110%);
+	z-index: 999;
+}
+
+.buttontutorial:after,.buttontutorial:before {
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.buttontutorial:after {
+	border-color: rgba(206, 213, 0, 0);
+	border-width: 10px;
+}
+.buttontutorial:before {
+	border-color: rgba(107, 105, 105, 0);
+	border-width: 13px;
+}
+
+/* LEFT */
+.left.buttontutorial:after {
+	right:100%;
+	top:50%;
+	border-right-color: yellow;
+	margin-top: -10px;
+}
+
+.left.buttontutorial:before {
+	right:100%;
+	top:50%;
+	border-right-color: #6b6969;
+	margin-top: -13px;
+}
+
+
+/* RIGHT */
+.right.buttontutorial:after {
+	left:100%;
+	top:20px;
+	border-left-color: yellow;
+	margin-top: -10px;
+}
+
+.right.buttontutorial:before {
+	left:100%;
+	top:20px;
+	border-left-color: #6b6969;
+	margin-top: -13px;
+}
+
+/* TOP */
+.top.buttontutorial {	margin-top: 1em; }
+.bot.buttontutorial {	margin-top: -5em; }
+.left.buttontutorial {
+	margin-top: -2em;
+	margin-left: 6em;
+}
+.right.buttontutorial {
+	margin-top: -2em;
+	margin-left: -6em;
+}
+
+.top.buttontutorial:after {
+	left: 50%;
+	bottom: 100%;
+	border-bottom-color: yellow;
+	margin-left: -10px;
+}
+
+.top.buttontutorial:before {
+	left: 50%;
+	bottom: 100%;
+	border-bottom-color: #6b6969;
+	margin-left: -13px;
+}
+
+/* BOTTOM */
+.bot.buttontutorial:after {
+	left: 50%;
+	top: 100%;
+	border-top-color: yellow;
+	margin-left: -10px;
+}
+
+.bot.buttontutorial:before {
+	left: 50%;
+	top: 100%;
+	border-top-color: #6b6969;
+	margin-left: -13px;
+}
+
+
+
+.buttontutorial_text {
+  background-color: yellow;
+  color:blue;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 0.6em;
+  opacity: 0.9;
+  z-index: 602;
+  font-style: italic;
+}
+
+
+.buttontutorial_text p { /*title*/
+  font-size:1em;
+  font-style: bold;
+  margin-top:-6px;
+  margin-bottom:-6px;
+  text-align: left;
+}
+
+.buttontutorial_bg {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: white;
+	z-index: 1000;
+	opacity: 0.1;
+}

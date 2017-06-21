@@ -1,0 +1,133 @@
+#maincircle {
+  position:absolute;
+  width:70%;
+  margin:5% 15% 5% 15%;
+  border: solid black;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #cdc;
+  box-shadow: 5px 5px 5px #888;
+}
+
+#maincircle input[type="button"], #maincircle input[type="file"] {
+  position: fixed;
+  top: -100em;
+  display:none;
+}
+
+#maincircle label {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.2em;
+  color: #333;
+  background-color: #fff;
+  padding: 3% 3% 3% 3%;
+  width:40%;
+  height:10%;
+  vertical-align: middle;
+  border: solid #555 2px;
+  border-radius: 10px 10px 10px 10px;
+  display:inline-block;
+}
+
+#maincircle label:hover {
+  background-color: #aaa;
+  color:#fff;
+}
+
+
+#useropts {
+  z-index: 90;
+  position: fixed;
+/*  bottom: 5px;  use this when tooltips is enabled too*/
+  bottom: 9px;
+  left: 0px;
+  background: #f0f0f0;
+  color: #1c1b1b;
+  font-size: 1.5em;
+  vertical-align: middle;
+  border-radius: 10px;
+  padding: 0px 5px 0px 0px;
+  transform: scale(0.45) translate(-95px,30px);
+}
+
+#useropts input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+
+#maincircle:after {
+  content: "\00a9 2016 Mehmet Tekman";
+  display: inline-block;
+  position: fixed;
+  bottom: 5px;
+  right: 2px;
+  padding: 0px 2px 0px 2px;
+  background: #f0f0f0;
+  color: #1c1b1b;
+  font-size: 0.6em;
+  border-radius: 10px;
+} 
+
+#maincircle ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#maincircle li {
+  margin: 8% 0px 8% 0px;
+}
+
+#maincircle li.smallspace {
+  margin: -2% 0px 8% 0px;
+}
+
+#maincircle h2 {
+  font-family: 'Ubuntu Mono', monospace;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+#maincircle h2.smallspace {
+  margin: -33px 0px 0px 0px;
+  /*padding: -20px;*/
+  /*border: -20px;*/
+  background-color: black;
+  color:white;
+}
+
+#maincircle h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 3em;
+  background-color:#eee;
+  border: 3px solid black;
+  border-radius: 19px 19px 0px 0px;
+  margin-top: 1%;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  text-shadow: 
+    2px 2px #fff,
+    -2px 2px #fff,
+}
+
+#maincircle hr.style15 {
+  width:95%;
+  border-top: 4px double #8c8b8b;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  text-align: center;
+  border-color: #8c8b8b;
+}
+
+#maincircle hr.style15:after {
+  content: "or";
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  padding: 0 5px;
+  background: #cdc;
+  color: #333;
+  font-size: 18px;
+}
