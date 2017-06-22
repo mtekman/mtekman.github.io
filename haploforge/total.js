@@ -19,116 +19,6 @@
 
 
 document.write('\
-        <div id="selection_tools" class="input_props" >\
-          <h3 id="selection_title" ></h3>\
-          <table id="selection_table" >\
-          </table>\
-        </div>\
-\
-        <!-- Save Dialogs -->\
-        <div id="save_and_close" class="input_props" >\
-          <h3 id="save_and_close_title"> General Opts. </h3>\
-          <table id="save_and_close_table">\
-          </table>\
-        </div>\
-');
-
-document.write('\
-\
-  <div id="maincircle">\
-\
-    <input id="haploupload" type="button" \
-                 onclick="MainButtonActions.fileUpload()" />\
-\
-    <input id="haploresume" type="button"\
-                 onclick="MainButtonActions.loadHaploFromStorage()"  />\
-\
-    <input id="pedmodebutton" type="button"\
-                 onclick="MainButtonActions.createNewPed()" />\
-\
-    <input id="pedresume" type="button"\
-                 onclick="MainButtonActions.loadPedFromStorage()" />\
-\
-    <ul class="nodots">\
-      <li class="smallspace">\
-          <div class="cornerspace lower">\
-              <a href="https://github.com/mtekman/haploforge" >source code</a>\
-              <br />\
-              <a href="test/supplemental_test_data.7z" id="test_assets" >test assets</a>\
-          </div>\
-          <h1>HaploForge</h1>\
-          <h2 class="smallspace">Extensive Haplotype Resolution and Pedigree Creation Tool</h2>\
-          <div class="cornerspace upper">\
-            <a onclick="BenchMark.launch_display()" >benchmarking</a>\
-          </div>\
-      </li>\
-      <li>\
-        <label id="haploupload_label" for="haploupload">Visualize New Haplotypes</label>\
-        <label id="haploresume_label" for="haploresume">Resume Previous Analysis</label>\
-      </li>\
-      <li>\
-        <hr class="style15">\
-      </li>\
-      <li>\
-        <label id="pedmodebutton" for="pedmodebutton">Create New Pedigree</label>\
-        <label id="pedresume_label" for="pedresume">Resume Pedigree</label>\
-      </li>\
-    </ul>\
-    <img id="settings_wheel" src="public_assets/images/settings_wheel.png" ></img>\
-  </div>\
-');
-
-document.write('\
-\
-<div id="homology_buttons" class="input_props" >\
-<!--            <input type=button id="hom_exit" value="X" />-->\
-\
-            <table>\
-                <tr>\
-                    <td colspan="2" >\
-                        <select id="plot_type">\
-                            <option selected value="HOM" >Homozygous</option>\
-                            <option value="HET" >Heterozygous</option>\
-                            <option value="CHET" >Compound Het.</option>\
-                        </select>\
-                    </td>\
-                </tr>\
-\
-                <tr>\
-                    <td>\
-                        <label for="zygous_min_stretch">Min Exten:</label>\
-                    </td>\
-                    <td>\
-                        <input type=number id="zygous_min_stretch" value="1" min=1 />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td>\
-                        <label for="zygous_min_score"  >Min Score:</label>\
-                    </td>\
-                    <td>\
-                        <input type=number id="zygous_min_score" value="1" min=1 />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td colspan="2">\
-                        <input type=button id="homology_redraw" value="Update" />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td colspan="2">\
-                        <input type=button id="homology_export" value="Export Data" />\
-                    </td>\
-                </tr>\
-            </table>\
-        </div>\
-');
-
-
-document.write('\
-<div id="settings_box"></div>\
-')
-document.write('\
         <div id="useropts">\
           <label><input type="checkbox" id="user_fancy" onchange="userOpts.update(\'fancyGraphics\',this.checked); userOpts.setGraphics(this.checked);" />Adv. Graphics</label><br/>\
           <!--<label><input type="checkbox" id="user_tooltips" onchange="userOpts.update(\'showTooltips\', this.checked);" />Tooltips</label>-->\
@@ -249,17 +139,48 @@ document.write('\
 ');
 
 document.write('\
-<div id="index_class" class="input_props" >\
-           <span class="not-numbers">\
-                <label for="marker_min">From:</label>\
-                <input id="marker_min" list="marker_list_min" />\
-                <label for="marker_max">To:</label>\
-                <input id="marker_max" list="marker_list_max" />\
-                <datalist id="marker_list_min" ></datalist>\
-                <datalist id="marker_list_max" ></datalist>\
-                <input type=button value="Go" id="index_submit" />\
-            </span>\
-        </div>\
+\
+  <div id="maincircle">\
+\
+    <input id="haploupload" type="button" \
+                 onclick="MainButtonActions.fileUpload()" />\
+\
+    <input id="haploresume" type="button"\
+                 onclick="MainButtonActions.loadHaploFromStorage()"  />\
+\
+    <input id="pedmodebutton" type="button"\
+                 onclick="MainButtonActions.createNewPed()" />\
+\
+    <input id="pedresume" type="button"\
+                 onclick="MainButtonActions.loadPedFromStorage()" />\
+\
+    <ul class="nodots">\
+      <li class="smallspace">\
+          <div class="cornerspace lower">\
+              <a href="https://github.com/mtekman/haploforge" >source code</a>\
+              <br />\
+              <a href="test/supplemental_test_data.7z" id="test_assets" >test assets</a>\
+          </div>\
+          <h1>HaploForge</h1>\
+          <h2 class="smallspace">Extensive Haplotype Resolution and Pedigree Creation Tool</h2>\
+          <div class="cornerspace upper">\
+            <a onclick="BenchMark.launch_display()" >benchmarking</a>\
+          </div>\
+      </li>\
+      <li>\
+        <label id="haploupload_label" for="haploupload">Visualize New Haplotypes</label>\
+        <label id="haploresume_label" for="haploresume">Resume Previous Analysis</label>\
+      </li>\
+      <li>\
+        <hr class="style15">\
+      </li>\
+      <li>\
+        <label id="pedmodebutton" for="pedmodebutton">Create New Pedigree</label>\
+        <label id="pedresume_label" for="pedresume">Resume Pedigree</label>\
+      </li>\
+    </ul>\
+    <img id="settings_wheel" src="public_assets/images/settings_wheel.png" ></img>\
+  </div>\
 ');
 
 document.write('\
@@ -339,6 +260,24 @@ document.write('\
         </div>\
 ');
 
+
+document.write('\
+<div id="settings_box"></div>\
+')
+document.write('\
+<div id="index_class" class="input_props" >\
+           <span class="not-numbers">\
+                <label for="marker_min">From:</label>\
+                <input id="marker_min" list="marker_list_min" />\
+                <label for="marker_max">To:</label>\
+                <input id="marker_max" list="marker_list_max" />\
+                <datalist id="marker_list_min" ></datalist>\
+                <datalist id="marker_list_max" ></datalist>\
+                <input type=button value="Go" id="index_submit" />\
+            </span>\
+        </div>\
+');
+
 document.write('\
       <div id="status_props" class="status">\
           <div class="reflect" id="status_head">Header</div>\
@@ -378,11 +317,15 @@ document.write('\
           <table class="bench_input">\
              <tr >\
                <td>Founder Couples:</td>\
-               <td><input id="bench_root_founder" type="number" min=1 value=3 /></td>\
+               <td>\
+                <input id="bench_root_founder" type="number" min=1 value=1 />\
+                <div class="tooltip_box" >?</div>\
+                <div class="tooltip_text" ><p>Founder couples &#62;1</p>If the ancestors of seperate founder couples do not mix, a single pedigree cannot be generated.<br/>Either set the number of root founder couples to 1, or alternately increase the number of generations and the inbreeding probability.</div>\
+               </td>\
              </tr>\
              <tr>\
                <td>Max Generations:</td>\
-               <td><input id="bench_max_gen" type="number" min=2 value=9 max=100 /></td>\
+               <td><input id="bench_max_gen" type="number" min=2 max=100 value=4 /></td>\
              </tr>\
              <tr>\
                <td>Size of Alleles:</td>\
@@ -397,6 +340,67 @@ document.write('\
                <td><input id="bench_export_haplo" type="checkbox" /></td>\
              </tr>\
            </table>\
+        </div>\
+');
+
+document.write('\
+\
+<div id="homology_buttons" class="input_props" >\
+<!--            <input type=button id="hom_exit" value="X" />-->\
+\
+            <table>\
+                <tr>\
+                    <td colspan="2" >\
+                        <select id="plot_type">\
+                            <option selected value="HOM" >Homozygous</option>\
+                            <option value="HET" >Heterozygous</option>\
+                            <option value="CHET" >Compound Het.</option>\
+                        </select>\
+                    </td>\
+                </tr>\
+\
+                <tr>\
+                    <td>\
+                        <label for="zygous_min_stretch">Min Exten:</label>\
+                    </td>\
+                    <td>\
+                        <input type=number id="zygous_min_stretch" value="1" min=1 />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td>\
+                        <label for="zygous_min_score"  >Min Score:</label>\
+                    </td>\
+                    <td>\
+                        <input type=number id="zygous_min_score" value="1" min=1 />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td colspan="2">\
+                        <input type=button id="homology_redraw" value="Update" />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td colspan="2">\
+                        <input type=button id="homology_export" value="Export Data" />\
+                    </td>\
+                </tr>\
+            </table>\
+        </div>\
+');
+
+document.write('\
+        <div id="selection_tools" class="input_props" >\
+          <h3 id="selection_title" ></h3>\
+          <table id="selection_table" >\
+          </table>\
+        </div>\
+\
+        <!-- Save Dialogs -->\
+        <div id="save_and_close" class="input_props" >\
+          <h3 id="save_and_close_title"> General Opts. </h3>\
+          <table id="save_and_close_table">\
+          </table>\
         </div>\
 ');
 
@@ -1811,6 +1815,973 @@ class Merlin extends FileFormat {
 		//console.log("::Map --- finish");
 	}
 }
+// Set by cssfuncs/buttonmodes/general.js
+// -- but good to keep it here
+
+var ModeTracker = {
+	
+	currentMode : null,
+
+	modes : {
+
+		pedcreate: 0,
+		haploview: 1,
+		selection: 2,
+		comparison: 3,
+		homselection: 4,
+		homology: 5
+	},
+
+	setMode(mode)
+	{
+		if (mode in ModeTracker.modes){
+			ModeTracker.currentMode = ModeTracker.modes[mode];
+
+			if (mode in MouseResize.resize_modes){
+				MouseResize.on();
+			}
+			else {
+				MouseResize.off();
+			}
+
+			return 0;
+		}
+		console.log("mode", mode);
+		throw new Error("invalid mode");
+	}
+}
+
+
+// TODO: Update node_map to point at unique_graph_obs.nodes, and retrieve family name
+
+var edgeAccessor = {
+
+	_UUID: function (type, from_id, to_id){
+		// m Father_id Mother_id   // MAYBE UNITE m and p?
+		// p Father_id Mother_id
+		// c parentline child_id
+
+		// straightforward to find childline from two parents
+		// (e.g any keys starting with "c m F_id M_id"
+		return type+":"+from_id+"-"+to_id;
+	},
+
+	childlineID: function(mateline_id, child_id){
+		return this._UUID('c', mateline_id, child_id)
+	},
+
+	matelineID: function(father_id , mother_id){
+		return this._UUID('m', father_id, mother_id)
+	}
+}
+
+
+
+var updateGraph = {
+
+
+	childline: function(family_id, person_id, parents_mateline_id = -1)
+	{
+		if (parents_mateline_id === -1){
+			var person_node = familyMapOps.getPerc(person_id, family_id);
+
+			if ((person_node.father === 0) || (person_node.mother === 0)){
+				//No parent mateline, nothing to update
+				return 0;
+			}
+
+			parents_mateline_id = edgeAccessor.matelineID(person_node.father.id, person_node.mother.id);
+		}
+
+		var childline_id = edgeAccessor.childlineID(parents_mateline_id, person_id),
+			childline    = uniqueGraphOps.getEdge(childline_id, family_id).graphics,
+			mateline     = uniqueGraphOps.getEdge(parents_mateline_id, family_id).graphics,
+			mateline_ps  = mateline.getPoints();
+
+//			childline_ps = childline.getPoints();
+//			var mid_xx = childline_ps[0] + childline.getX(),
+//			  	mid_yy = childline_ps[1] + childline.getY();
+
+		var mid_xx = (mateline_ps[2] + mateline_ps[4])/2 + mateline.getX(),
+			mid_yy = (mateline_ps[3] + mateline_ps[5])/2 + mateline.getY();
+
+		var person_graphics = uniqueGraphOps.getNode(person_id, family_id).graphics;
+
+//		console.log("childline", childline);
+
+		Graphics.Lines.changeRLine( childline, {x:mid_xx, y:mid_yy}, person_graphics.getPosition());
+	}
+}
+
+
+
+function redrawNodes(pers_id, fam_id, drawLinesToo)
+{
+	var pers      = familyMapOps.getPerc(pers_id, fam_id),
+		fam_gfx   = uniqueGraphOps.getFam(fam_id),
+		node_map  = fam_gfx.nodes,
+		edge_map  = fam_gfx.edges,
+		npers     = node_map[pers_id],
+		npers_pos = npers.graphics.getPosition(),
+		per_isMale= (pers.gender == PED.MALE);
+
+
+	// Move mates vertically
+
+	// Stagger mate's vertically to please the world
+	var staggerY_amount = grid_rezY/2,
+		use_stagger = false; //pers.mates.length > 1;
+
+	for (var m=0; m < pers.mates.length; m++){
+//		console.log(pers_id, "mate=", pers.mates[m].id )
+		var mate = pers.mates[m],
+			nmate = node_map[mate.id].graphics,
+			nmate_pos = nmate.getPosition();
+
+		if (use_stagger){
+			nmate.setY(npers_pos.y + (staggerY_amount)); // bind y only
+		}
+		else {
+			nmate.setY(npers_pos.y);
+		}
+
+		var ch_x = npers_pos.x + (nodeSize*2); 		// Offset stops shapes from intersecting
+
+		//Mate is on left
+		if (ch_x > nmate_pos.x){
+			if ((ch_x - nmate_pos.x) < horiz_space ){
+				nmate.setX(ch_x - horiz_space);
+			}
+
+		nmate_pos = nmate.getPosition() // update pos after change
+
+
+			// -- Keep this out, otherwise you can never swap around parents
+			//		else
+			//			if ((nmate_pos.x-npers_pos.x) < buffer)
+			//				nmate.setX(npers_pos.x + buffer+2);
+		}
+		//Update mate's mate's
+		for (var mm=0 ; mm < mate.mates.length; mm++){
+			var matemate_id  = mate.mates[mm].id;
+
+			if (matemate_id != pers_id){
+				var nmatemate     = node_map[matemate_id].graphics,
+					nmatemate_pos = nmatemate.getPosition();
+
+				nmatemate.setY(npers_pos.y);
+				nmatemate_pos = nmatemate.getPosition(); // update
+			}
+		}
+
+
+		if (drawLinesToo){
+			var male_id   = (per_isMale)?pers.id:mate.id,
+				female_id = (per_isMale)?mate.id:pers.id;
+
+			// -- mateline, and update it's pos
+			var mateline_id = edgeAccessor.matelineID(male_id, female_id),
+				mateline = edge_map[mateline_id].graphics;
+
+			var s1_x = npers_pos.x, s1_y = npers_pos.y,
+				e1_x = nmate_pos.x, e1_y = nmate_pos.y;
+
+			Graphics.Lines.changeRLineHoriz(mateline, npers_pos, nmate_pos);
+
+			//  -- update childlines attached to it
+			var childkey_starting = "c:"+mateline_id;   //Look for all childnodes starting with
+
+			for (var key in edge_map){
+				if (key.lastIndexOf(childkey_starting,0) === 0) //startsWith implementation
+				{
+					var find_child_id = key.split('-'),
+						child_id = parseInt(find_child_id[find_child_id.length - 1].trim());
+
+					updateGraph.childline(fam_id, child_id);
+				}
+			}
+
+			// -- mate's childline
+			updateGraph.childline(fam_id, mate.id);	
+
+
+			// -- mate's mate's mateline
+			for (var mm=0 ; mm < mate.mates.length; mm++){
+				var matemate_id = mate.mates[mm].id,
+					matemate_gfx = node_map[matemate_id].graphics;
+
+				var male_id   = (mate.gender===PED.MALE)?mate.id:matemate_id,
+					female_id = (mate.gender===PED.FEMALE)?mate.id:matemate_id;
+
+				if (matemate_id != pers_id){
+
+					var mateline_id = edgeAccessor.matelineID(male_id, female_id),
+						mateline = edge_map[mateline_id].graphics;
+
+//					var s1_x = mate.getX(), 	s1_y = mate.getY(),
+//						e1_x = matemate.getX(), e1_y = matemate.getY();
+
+					Graphics.Lines.changeRLineHoriz(mateline, nmate.getPosition(), matemate_gfx.getPosition());
+
+					// And now their children...!
+					var child_edges = uniqueGraphOps.findAllOffspringEdges(fam_id, male_id, female_id);
+
+					for (var cc=0; cc < child_edges.length; cc++){
+						var ops = child_edges[cc].split('-');
+						var child_id = ops[ops.length-1];
+
+						updateGraph.childline(fam_id, child_id);
+					}
+
+				}
+			}
+		}
+	}
+
+	// NEED TO UPDATE GENERATION)GRID_IDS
+
+	//If last generation, move all sibs
+	if (GlobalLevelGrid.exists(fam_id))
+	{
+		var last_gen = GlobalLevelGrid.getlastgeneration(fam_id);
+
+		if (last_gen.indexOf(pers_id)!== -1)
+		{
+			for (var c=0; c < last_gen.length; c++){
+				var sib_id = last_gen[c],
+					n_sib = node_map[sib_id].graphics;
+
+				n_sib.setY(npers_pos.y);
+
+				if (drawLinesToo){ //Update childlines			
+					updateGraph.childline(fam_id, sib_id);
+				}
+			}
+		}
+	}
+
+
+	//Update own childnode.
+	if (drawLinesToo && (pers.father != 0 && pers.mother !=0))
+	{
+		updateGraph.childline(fam_id, pers.id);	
+	}
+}
+
+
+// Performs redrawNodes upon all
+function touchlines()
+{
+	familyMapOps.foreachperc(function( perid, famid){
+
+		//console.log("touch", perid, famid);
+
+		var e = new CustomEvent("dragmove", {target: {attrs: {x:10, y:10}}}),
+			o = uniqueGraphOps.getFam(famid).nodes[perid].graphics;
+
+		o.dispatchEvent(e);
+	});
+}
+
+
+function linesShow(fid, show){
+	//Hide lines
+	var edges = uniqueGraphOps.getFam(fid).edges;
+	for (var eid in edges)
+		if (show){
+			edges[eid].graphics.show();
+			edges[eid].graphics.setZIndex(-21);
+		}
+		else
+			edges[eid].graphics.hide();
+
+	main_layer.draw();
+}
+
+
+
+
+var GlobalLevelGrid = {
+
+	_map : {}, //fid --> [[gen1], [gen2]]
+
+	clear: function(){
+		GlobalLevelGrid._map = {}
+	},
+
+	insertGrid: function(fid, grid = null)
+	{
+		if (!(fid in GlobalLevelGrid._map)){
+
+			if (grid === null){
+				console.log("GLG: populating null grid");
+				grid = GlobalLevelGrid.__populate(fid);
+			}
+
+			GlobalLevelGrid._map[fid] = grid;
+			return true;
+		}
+		return false;
+	},
+
+	refreshGrid: function(fid){
+		console.log("refreshing");
+		if (!(GlobalLevelGrid.insertGrid(fid))){
+			console.log("grid exists");
+			GlobalLevelGrid.updateGrid(fid,
+				GlobalLevelGrid.__populate(fid))
+		}
+	},
+
+	updateGrid: function(fid, grid){
+		console.log("GLG: update", fid);
+		GlobalLevelGrid._map[fid] = grid;
+	},
+
+	exists: function(fid){
+		return fid in GlobalLevelGrid._map;
+	},
+
+	getGrid: function(fid){
+		if (fid in GlobalLevelGrid._map){
+			return GlobalLevelGrid._map[fid];
+		}
+		return false;
+	},
+
+	deleteGrid: function(fid){
+		if (fid in GlobalLevelGrid._map){
+			delete GlobalLevelGrid._map[fid]
+			return true;
+		}
+		return false;
+	},
+
+	__populate: function(fid, callback1 = 0, callback2 = 0){
+		var root = familyMapOps.getFirst(fid);
+
+		var level_grid = new LevelGrid(root, callback1, callback2);
+		return level_grid.getGrid();
+	},
+
+	foreachfam: function(callback){
+		for (var fid in GlobalLevelGrid._map){
+			var grid = GlobalLevelGrid._map[fid];
+			callback(grid, fid);
+		}
+	},
+
+	foreachgeneration: function(fid, callback){
+		var grid = GlobalLevelGrid.getGrid(fid)
+
+		for (var g=0; g < grid.length; g++){
+			var individuals = grid[g];
+			callback(individuals, g);
+		}
+	},
+
+	numGens: function(fid){
+		var grid = GlobalLevelGrid.getGrid(fid);
+		return grid.length;
+	},
+
+	getlastgeneration: function(fid){
+		var grid = GlobalLevelGrid.getGrid(fid),
+			last_gen = grid.length - 1;
+
+		return grid[last_gen];
+	}
+}
+
+
+
+/* Family Specific */
+class LevelGrid {
+
+	constructor(root_indiv, callback1 = 0, callback2 = 0)
+	{
+		this._map = {};
+		this._alreadytraversed = {};
+
+		this._callback1 = callback1;
+		this._callback2 = callback2;
+
+		this._recurseLevels(root_indiv, 0);
+	}
+
+	getGrid(){
+		if (this._map !== {}){
+			return map2orderedArray(this._map);
+		}
+		console.log("Grid not populated")
+		return false;
+	}
+
+	_recurseLevels(perc, level)
+	{
+		if (perc === 0){
+			return;
+		}
+
+		if (perc.id in this._alreadytraversed){
+			return;
+		}
+		this._alreadytraversed[perc.id] = 1;
+		//console.log(perc.id, level);
+		
+		// Used by init_graph
+		if (this._callback1 !== 0) {this._callback1(perc);}
+
+		if (!(level in this._map)){
+			this._map[level] = [];
+		}
+
+		this._map[level].push( perc.id );
+
+		var lg = this;
+
+		perc.foreachmate(function(mate){
+			lg._recurseLevels(mate, level);
+
+			perc.foreachchild(mate, function(child){
+				lg._recurseLevels(child, level + 1);
+			});
+		});
+
+		// Parents
+		this._recurseLevels( perc.mother, level - 1);
+		this._recurseLevels( perc.father, level - 1);
+
+		// Used by init_graph
+		if (this._callback2 !== 0) {this._callback2(perc);}
+
+		return;
+	}
+}
+/* Family map must be populated and connected before a level map can ge generated */
+
+/** A level grid is made to facilitate determining which generations individuals belong to
+    This class hooks into Level Grid */
+
+class GraphicsLevelGrid {
+
+
+	constructor(fid, graphicsMap = null){
+		this.graphics_map = graphicsMap;	
+		this._populate(fid);
+	}
+
+	getMap(){
+		return this.graphics_map;
+	}
+
+
+	_populate(fid){
+
+		/* Not vars because addTrio uses them */
+		this._unique_edges_fam = {};
+		this._unique_nodes_fam = {
+			0 : {
+				graphics: null
+			}
+		};
+	
+		/* LevelGrid generates a level map whilst using
+		   graphic callbacks */
+		var that = this;
+
+		var level_grid = GlobalLevelGrid.__populate(fid, 
+			function cb1(perc){
+				// Populates this._unique_nodes_fam
+				that.insertNode(perc.id);
+			},
+		
+			function cb2(perc){
+				if (perc.mother != 0 && perc.father != 0){
+					// Populates this._unique_edges_fam
+					that.addTrioEdges(perc.mother, perc.father, perc);
+				}
+			}
+		);
+
+//		console.log(fid, level_grid);
+
+		GlobalLevelGrid.insertGrid(fid, level_grid);
+
+		var uniq_map = {
+			nodes: this._unique_nodes_fam,
+			edges: this._unique_edges_fam
+		};
+
+		this.graphics_map = uniq_map;
+	}
+
+
+	addTrioEdges(moth, fath, child){
+		//= Assume all indivs are != 0
+		var u_matesline = edgeAccessor.matelineID(fath.id, moth.id),
+			u_childline = edgeAccessor.childlineID(u_matesline, child.id);
+
+		//= Edges
+		this.insertEdges(u_matesline, fath.id, moth.id, 0);
+		this.insertEdges(u_childline, u_matesline, child.id, 2);
+
+		//= Nodes
+		this.insertNode(moth.id);
+		this.insertNode(fath.id);
+		this.insertNode(child.id); //Already in
+	}
+
+
+	insertNode(id){
+		if (!(id in this._unique_nodes_fam))
+		{
+			var graphicsObj = null;
+			
+			// If node already has graphics, reinsert it into new map
+			if (this.graphics_map !== null ){
+				graphicsObj = this.graphics_map.nodes[id];
+			}
+
+			this._unique_nodes_fam[id] = {
+				graphics:graphicsObj,		// if being read from pedfile, set later by placePerp
+			 };
+		}
+		else{
+			// Id exists, but perhaps not graphics? reinsert into new map
+			if (this.graphics_map !== null ){
+
+				var graphicsObj = this.graphics_map.nodes[id];
+				this._unique_nodes_fam[id].graphics = graphicsObj;
+			}
+		}
+	}
+
+	insertEdges(id, start_join, end_join, type, 
+		consang = false,
+		mapper = this._unique_edges_fam,
+		graphicsObj = null){
+
+		if (!(id in mapper))
+		{
+			mapper[id] = {
+				graphics:graphicsObj,			//set later by placePerp
+				type:type,
+				start_join_id: start_join,      //Note: IDs, not positions
+				end_join_id: end_join,
+				consangineous: consang 				// Consangineous
+			}
+		}
+	}
+}
+
+
+var FamSpacing = {
+
+
+	init(offset, max_width, debug = false){
+		max_width = max_width || stage.getWidth();
+		offset = offset || 0;
+
+		var placements = FamSpacing.__getFamBounds();
+
+		FamSpacing.__performPacking(placements, max_width, debug);
+		FamSpacing.__setDerivedPositions(placements, offset);
+	},
+
+	// Accessible to node drag functions too
+	getBoundsForFamily: function(fgroup){
+		// Get group width
+		var min_x = 999999999, min_y = 9999999,
+			max_x = 0, max_y = 0;
+
+		var title_y = fgroup.fam_title_text.getY();
+
+		uniqueGraphOps.foreachnode(function(nid, node)
+		{
+			var xer = node.graphics.getX(),
+				yer = node.graphics.getY()
+
+			var l_offs = nodeSize,
+				r_offs = l_offs;
+
+			if (min_x > xer - l_offs){ min_x = xer - l_offs; }
+			if (max_x < xer + r_offs){ max_x = xer + r_offs; }		
+			if (min_y > yer - nodeSize){ min_y = yer - nodeSize; }		
+			if (max_y < yer + nodeSize){ max_y = yer + nodeSize; }
+		}, fgroup.id);
+
+//		var min_y = title_y
+
+		var pos = fgroup.getAbsolutePosition();
+		var w = max_x - min_x,
+			h = max_y - min_y;
+
+		var rect = new Kinetic.Rect({
+			x:min_x + pos.x,
+			y:min_y + pos.y,
+			stroke:"red",
+			strokeWidth: 2,
+			width: w,
+			height: h
+		});
+
+		// Move out of way for now
+		rect.setX(-1000);
+		rect.setY(-1000);
+
+		main_layer.add(rect);
+
+		return {rect: rect, minpos: { x: min_x, y: min_y}};
+	},
+
+
+	__getFamBounds : function()
+	{
+		var fam_placements = {}; // fid -> [position, width]
+
+		uniqueGraphOps.foreachfam(function(fid,fgr)
+		{
+			fgr.group.hide();
+			fam_placements[fid] = FamSpacing.getBoundsForFamily(fgr.group);
+
+		});
+		return fam_placements;
+	},
+
+
+	__performPacking : function(fam_placements, max_width, debug = false)
+	{
+		var start_x = nodeSize,
+			start_y = 50;
+
+		var total_width = max_width,
+			ma_rect;
+
+		if (debug){
+			ma_rect = new Kinetic.Rect({
+				x:total_width,
+				y:0,
+				stroke:"blue",
+				strokeWidth: 2,
+				width: 5,
+				height: stage.getHeight()
+			});
+			
+			main_layer.add(ma_rect);
+			main_layer.draw();
+		}
+
+		for (var group_id in fam_placements)
+		{
+			var group = fam_placements[group_id].rect;
+
+			group.setX( start_x );
+			group.setY( start_y );
+
+			while (true) {
+				var any_collision = false;
+
+				for (var second_id in fam_placements)
+				{
+					if (group_id === second_id){
+						continue;
+					}
+
+					var second_group = fam_placements[second_id].rect;
+
+					if (FamSpacing.__colliding(group, second_group)){
+						any_collision = true;
+						break;
+					}
+				}
+
+				if (any_collision){
+					// shift left;
+					start_x += nodeSize * 3;
+					if (start_x + group.getWidth()*4/5 > total_width)
+					{
+						start_x = nodeSize * 5;
+						start_y += nodeSize * 4;
+					}
+					group.setX(start_x);
+					group.setY(start_y);
+
+					if (debug){
+						main_layer.draw();
+						debugger;
+					}
+					continue;
+				}
+
+				// No collision after testing all -- final position found.
+				break;
+			}
+		}
+
+		if (debug){
+			ma_rect.destroy();
+		}
+
+	},
+
+
+	__setDerivedPositions: function(fam_placements, offsetT = 0)
+	{
+		for (var g_id in fam_placements)
+		{
+			var group = fam_placements[g_id].rect,
+				offset  = fam_placements[g_id].minpos,
+				offx = offset.x,
+				offy = offset.y,
+				fgroup = uniqueGraphOps.getFam(g_id).group;
+
+			fgroup.setX( group.getX() + offsetT - offx );
+			fgroup.setY( group.getY() + offsetT - offy );
+			fgroup.show();
+
+			//Remove rects after ananlyis
+			group.destroy();
+		}
+	},
+
+	__colliding: function(r1,r2){
+	 	var spacing = nodeSize * 2 ;
+
+		var rect1 = {x: r1.getX(), y: r1.getY(), 
+			width: r1.getWidth() + spacing, 
+			height: r1.getHeight() + spacing
+		}
+		var rect2 = {x: r2.getX(), y: r2.getY(), 
+			width: r2.getWidth() + spacing, 
+			height: r2.getHeight() + spacing
+		}
+
+		if (rect1.x < rect2.x + rect2.width &&
+	   		rect1.x + rect1.width > rect2.x &&
+	   		rect1.y < rect2.y + rect2.height &&
+	   		rect1.height + rect1.y > rect2.y) {
+	    	
+	    	return true;
+		}
+	    return false;
+	}
+}
+
+
+
+/*
+function spaceFamGroups2(){
+
+	var fam_placements = {}; // fid -> [position, width]
+
+	familyMapOps.foreachfam(function(fid){
+
+		// Get group width
+		var min_x = 999999999, min_y = 9999999,
+			max_x = 0, max_y = 0;
+
+		var famgfx = uniqueGraphOps.getFam(fid),
+			fgroup = famgfx.group,
+			title_pos = fgroup.fam_title_text.getX(),
+			title_wid = fgroup.fam_title_text.getWidth();
+
+		uniqueGraphOps.foreachnode(function(nid, node)
+		{
+			var xer = node.graphics.getX(),
+				yer = node.graphics.getY()
+
+			var l_offs = nodeSize,
+				r_offs = l_offs;
+
+			if (min_x > xer - l_offs){ min_x = xer - l_offs; }
+			if (max_x < xer + r_offs){ max_x = xer + r_offs; }
+			
+			if (min_y > yer - nodeSize){ min_y = yer - nodeSize; }		
+			if (max_y < yer + nodeSize){ max_y = yer + nodeSize; }
+
+			if (fid === "1001"){
+				console.log(fid, min_x, max_x)
+			}
+
+		}, fid);
+
+		var group_pos = fgroup.getAbsolutePosition(),
+			group_width = max_x - min_x,
+			group_height = max_y - min_y;
+
+		fam_placements[fid] = [fgroup, {x : {min:min_x, max:max_x}, y: {min: min_y, max: max_y}}, group_width, group_height, title_pos];
+		console.log(fid, fam_placements[fid])
+	});
+
+	var start_x = nodeSize * 5,
+		start_y = 50;
+
+	var total_width = stage.getWidth(),
+		last_w = 0;
+
+	for (var f_id in fam_placements){
+		var pack = fam_placements[f_id];
+
+		var	group = pack[0],
+			pos = pack[1],
+			w = pack[2],
+			h = pack[3],
+			title_pos = pack[4]
+
+		
+		var new_x = start_x - pos.x.min;
+
+		group.setX( new_x );
+		group.setY( start_y );
+
+		group.hit = function(res){
+			console.log("HIT", res);
+		}
+
+		if (start_x + w > 500){
+			start_x = 10;
+			start_y = h + nodeSize*2;
+		}
+
+		start_x += w + nodeSize*4;
+
+		group.add( new Kinetic.Rect({
+			x:pos.x.min,
+			y:0,
+			stroke:"red",
+			strokeWidth: 2,
+			width: w,
+			height: h + pos.y.min
+		}));
+
+
+		last_w = w;
+	}
+}
+*/
+/// DO NOT BOTHER TO CHAIN THE END OF ONE TWEEN TO THE START OF ANOTHER
+// the onFinish function in the tweening stage executes only after a node
+// has been launched, and it does not wait for it to finish.
+//
+// Rely on the more or less precise timings set by the setTimeout wrapper.
+
+
+var FancyGraphics = {
+
+	__start : null,
+	__step : 50,
+	__fromLeft : false,
+
+	__initial : {
+		scale : 50,
+		x: -100,
+		y: 2000,
+		duration: 0.5
+	},
+
+
+	init: function()
+	{
+		//Reset
+		FancyGraphics.__start = 0;
+		FancyGraphics.__fromLeft = Math.round(Math.random()) === 0;
+		FancyGraphics.__initial.y *= FancyGraphics.__fromLeft?-1:1;
+
+		//Init
+		FancyGraphics.__placeFamText();
+		FancyGraphics.__placeNodes();
+		FancyGraphics.__placeLines();
+	},
+
+
+	__place: function(graphics, step)
+	{
+		var positions = {
+			x: graphics.getX(),
+			y: graphics.getY()
+		}
+
+		var initial = FancyGraphics.__initial;
+
+		graphics.setScale({x:initial.scale, y:initial.scale});
+		graphics.setX(initial.x);
+		graphics.setY(initial.y);
+		graphics.moveToTop();
+
+		setTimeout(function(){
+			kineticTween({
+				node:graphics,
+				scaleX:1,
+				scaleY:1,
+				x : positions.x,
+				y : positions.y,
+				duration: initial.duration,
+				easing: Kinetic.Easings.StrongEaseOut
+			}).play();
+		
+		}, FancyGraphics.__start);
+
+		// Stagger placement interval
+		FancyGraphics.__start += step;
+	},
+
+
+	__placeFamText(){
+		uniqueGraphOps.foreachfam(function(fid,fgroup){
+			FancyGraphics.__place(
+				fgroup.group,
+				FancyGraphics.__step * 2
+			);
+		});
+	},
+
+	__placeNodes(){
+		FancyGraphics.__start += 500; // pause
+
+		uniqueGraphOps.foreachnode(function(pid,fid,node){
+			node.graphics.show()
+			FancyGraphics.__place(
+				node.graphics,
+				FancyGraphics.__step
+			);
+		});
+	},
+
+
+	__placeLines(){
+		FancyGraphics.__start += 200; // pause
+
+		var show_interval = FancyGraphics.__start + FancyGraphics.__initial.duration*1000;
+
+		// Hide all edges until nodes are placed
+		uniqueGraphOps.foreachedge(function(eid,fid,edge){
+			edge.graphics.hide();
+
+/*			setTimeout(function(){
+				kineticTween({
+					node:edge.graphics,
+					visible: true,
+					duration: 3
+				});
+			}, show_interval);*/
+		});
+
+		// Final touch
+		setTimeout(function(){
+			uniqueGraphOps.foreachedge(function(eid,fid,edge){
+				edge.graphics.show();
+			});
+
+			touchlines();
+			main_layer.draw();
+		},
+		show_interval);
+	}
+}
+	
+
+
 //Keyboard
 
 var Keyboard = {
@@ -2123,6 +3094,104 @@ var MouseStyle = {
 	changeToVerticalN(){document.body.style.cursor = "n-resize";},
 	changeToVerticalS(){document.body.style.cursor = "s-resize";},
 }
+
+var MouseWheel = {
+	
+	__mousewheellistener_on : false,
+	__lasthandler : null,
+
+	_addMouseWheel: function(handler)
+	{
+		if (document.addEventListener) {
+        	document.addEventListener("mousewheel", handler, false); //IE9, Chrome, Safari, Oper
+        	document.addEventListener("wheel", handler, false); //Firefox
+    	} else {
+        	document.attachEvent("onmousewheel", handler); //IE 6/7/8
+    	}
+		MouseWheel.__mousewheellistener_on = true;
+		MouseWheel.__lasthandler = handler;
+	},
+
+	_removeMouseWheel: function(handler)
+	{
+		if (document.addEventListener) {
+        	document.removeEventListener("mousewheel", handler, false); //IE9, Chrome, Safari, Oper
+        	document.removeEventListener("wheel", handler, false); //Firefox
+    	} else {
+        	document.detachEvent("onmousewheel", handler); //IE 6/7/8
+    	}
+		MouseWheel.__mousewheellistener_on = false;
+	},
+
+	on : function(handler){
+		if (MouseWheel.__mousewheellistener_on){
+			console.log("Listener already active, detaching last handler and replacing with new");
+			MouseWheel._removeMouseWheel( MouseWheel.__lasthandler );
+		}
+		MouseWheel._addMouseWheel( handler );
+	},
+
+	off : function(handler){
+		if (MouseWheel.__mousewheellistener_on){
+			MouseWheel._removeMouseWheel( handler );
+			console.log("turning off mouse");
+			return 0;
+		}
+		console.log("already off");
+	}
+}
+
+var MouseResize = {
+
+	resize_modes : {
+		pedcreate: ModeTracker.modes.pedcreate,
+		haploview: ModeTracker.modes.haploview,
+	},
+
+	_prevwheelstate : 0,
+	_scale : 1,
+
+	_wheelHandler: function(event){
+
+		var delta = event.detail;
+		if (delta === 0){
+			delta = (event.deltaY > 0)?-0.1:0.1;
+		}
+
+		var wheelstatechanged = false;
+
+		if ((delta > 0 && MouseResize._prevwheelstate < 0)
+		  ||(delta < 0 && MouseResize._prevwheelstate > 0))
+		{
+			wheelstatechanged = true
+		}
+
+		if (!wheelstatechanged){
+			let new_scale = main_layer.getScale().x + delta;
+			
+			main_layer.setScale({
+				x:new_scale,y:new_scale
+			});
+			utility.notify("Scale", new_scale.toFixed(1))
+			main_layer.draw();
+		}
+		MouseResize._prevwheelstate = delta;
+	},
+
+	on : function(handler)
+	{
+		MouseWheel.on(  MouseResize._wheelHandler );
+		stage.setDraggable(true)
+	},
+
+	off: function(handler)
+	{
+		MouseWheel.off( MouseResize._wheelHandler );
+		stage.setDraggable(false)
+	}
+}
+
+
 
 
 
@@ -3284,13 +4353,13 @@ var MainPageHandler = {
 		init.clearMaps();
 
 		MainPageHandler._currentMode = MainPageHandler.modes.main
-		BackgroundVidMain.addVid(); /* Must come after above */
+		BackgroundVidMain.addVid(); //Must come after above 
 
 		userTutorials.run();
 
 		fileSelector.end();
 
-		/** Show main page, hide rest **/
+		// Show main page, hide rest
 		MainPageHandler.__bgDefault();
 
 		MainPageHandler.showDiv("main", true);
@@ -3417,7 +4486,8 @@ var MainButtonActions  = {
 				utility.yesnoprompt("Pedigree Modified", "Save changes before exit?",
 					"Yes", function(){
 			 			MainButtonActions.savePedToStorage();
-			 			MainPageHandler.defaultload();
+			 			//MainPageHandler.defaultload();
+			 			location.reload();
 			 		},
 			 		"No", function(){
 			 			MainPageHandler.defaultload();	
@@ -3425,12 +4495,14 @@ var MainButtonActions  = {
 				 );
 			}
 			else{
-				MainPageHandler.defaultload();
+				//MainPageHandler.defaultload();
+				location.reload();
 			}
 		}
 		// Haplo Types are automatically saved and loaded
 		else{
-			MainPageHandler.defaultload();
+			//MainPageHandler.defaultload();
+			location.reload();
 		}
 	},
 
@@ -6659,10 +7731,13 @@ function makeStage(){
 	stage = new Kinetic.Stage({
 		container:'container',
 		width: window.innerWidth,
-		height: window.innerHeight
+		height: window.innerHeight,
+		draggable: true
 	});
 
-	main_layer = new Kinetic.Layer({id:"main"});
+	main_layer = new Kinetic.Layer({
+		id:"main"
+	});
 	haplo_layer = new Kinetic.Layer({id:"haplo"});
 
 	stage.add(main_layer);
@@ -7142,9 +8217,13 @@ function addExitButton(center, callback, color_level = 0)
 	crossDown.setPoints([-cross_buff, cross_buff,
 						  cross_buff,-cross_buff]);
 
+
+	center.scale = center.scale || {x:1,y:1};
+
 	var group = new Kinetic.Group({
-		x: center.x,
-		y: center.y
+		x: center.x / center.scale.x,
+		y: center.y / center.scale.y,
+		scale : { x: 1 / center.scale.x, y: 1 / center.scale.y }
 	});
 
 	group.on('click', callback);
@@ -7156,975 +8235,24 @@ function addExitButton(center, callback, color_level = 0)
 	return group;
 }
 
-// Set by cssfuncs/buttonmodes/general.js
-// -- but good to keep it here
-
-var ModeTracker = {
-	
-	currentMode : null,
-
-	modes : {
-
-		pedcreate: 0,
-		haploview: 1,
-		selection: 2,
-		comparison: 3,
-		homselection: 4,
-		homology: 5
-	},
-
-
-	setMode(mode)
-	{
-		if (mode in ModeTracker.modes){
-			ModeTracker.currentMode = ModeTracker.modes[mode];
-			return 0;
-		}
-		console.log("mode", mode);
-		throw new Error("invalid mode");
-	}
-}
-// TODO: Update node_map to point at unique_graph_obs.nodes, and retrieve family name
-
-var edgeAccessor = {
-
-	_UUID: function (type, from_id, to_id){
-		// m Father_id Mother_id   // MAYBE UNITE m and p?
-		// p Father_id Mother_id
-		// c parentline child_id
-
-		// straightforward to find childline from two parents
-		// (e.g any keys starting with "c m F_id M_id"
-		return type+":"+from_id+"-"+to_id;
-	},
-
-	childlineID: function(mateline_id, child_id){
-		return this._UUID('c', mateline_id, child_id)
-	},
-
-	matelineID: function(father_id , mother_id){
-		return this._UUID('m', father_id, mother_id)
-	}
-}
-
-
-
-var updateGraph = {
-
-
-	childline: function(family_id, person_id, parents_mateline_id = -1)
-	{
-		if (parents_mateline_id === -1){
-			var person_node = familyMapOps.getPerc(person_id, family_id);
-
-			if ((person_node.father === 0) || (person_node.mother === 0)){
-				//No parent mateline, nothing to update
-				return 0;
-			}
-
-			parents_mateline_id = edgeAccessor.matelineID(person_node.father.id, person_node.mother.id);
-		}
-
-		var childline_id = edgeAccessor.childlineID(parents_mateline_id, person_id),
-			childline    = uniqueGraphOps.getEdge(childline_id, family_id).graphics,
-			mateline     = uniqueGraphOps.getEdge(parents_mateline_id, family_id).graphics,
-			mateline_ps  = mateline.getPoints();
-
-//			childline_ps = childline.getPoints();
-//			var mid_xx = childline_ps[0] + childline.getX(),
-//			  	mid_yy = childline_ps[1] + childline.getY();
-
-		var mid_xx = (mateline_ps[2] + mateline_ps[4])/2 + mateline.getX(),
-			mid_yy = (mateline_ps[3] + mateline_ps[5])/2 + mateline.getY();
-
-		var person_graphics = uniqueGraphOps.getNode(person_id, family_id).graphics;
-
-//		console.log("childline", childline);
-
-		Graphics.Lines.changeRLine( childline, {x:mid_xx, y:mid_yy}, person_graphics.getPosition());
-	}
-}
-
-
-
-function redrawNodes(pers_id, fam_id, drawLinesToo)
-{
-	var pers      = familyMapOps.getPerc(pers_id, fam_id),
-		fam_gfx   = uniqueGraphOps.getFam(fam_id),
-		node_map  = fam_gfx.nodes,
-		edge_map  = fam_gfx.edges,
-		npers     = node_map[pers_id],
-		npers_pos = npers.graphics.getPosition(),
-		per_isMale= (pers.gender == PED.MALE);
-
-
-	// Move mates vertically
-
-	// Stagger mate's vertically to please the world
-	var staggerY_amount = grid_rezY/2,
-		use_stagger = false; //pers.mates.length > 1;
-
-	for (var m=0; m < pers.mates.length; m++){
-//		console.log(pers_id, "mate=", pers.mates[m].id )
-		var mate = pers.mates[m],
-			nmate = node_map[mate.id].graphics,
-			nmate_pos = nmate.getPosition();
-
-		if (use_stagger){
-			nmate.setY(npers_pos.y + (staggerY_amount)); // bind y only
-		}
-		else {
-			nmate.setY(npers_pos.y);
-		}
-
-		var ch_x = npers_pos.x + (nodeSize*2); 		// Offset stops shapes from intersecting
-
-		//Mate is on left
-		if (ch_x > nmate_pos.x){
-			if ((ch_x - nmate_pos.x) < horiz_space ){
-				nmate.setX(ch_x - horiz_space);
-			}
-
-		nmate_pos = nmate.getPosition() // update pos after change
-
-
-			// -- Keep this out, otherwise you can never swap around parents
-			//		else
-			//			if ((nmate_pos.x-npers_pos.x) < buffer)
-			//				nmate.setX(npers_pos.x + buffer+2);
-		}
-		//Update mate's mate's
-		for (var mm=0 ; mm < mate.mates.length; mm++){
-			var matemate_id  = mate.mates[mm].id;
-
-			if (matemate_id != pers_id){
-				var nmatemate     = node_map[matemate_id].graphics,
-					nmatemate_pos = nmatemate.getPosition();
-
-				nmatemate.setY(npers_pos.y);
-				nmatemate_pos = nmatemate.getPosition(); // update
-			}
-		}
-
-
-		if (drawLinesToo){
-			var male_id   = (per_isMale)?pers.id:mate.id,
-				female_id = (per_isMale)?mate.id:pers.id;
-
-			// -- mateline, and update it's pos
-			var mateline_id = edgeAccessor.matelineID(male_id, female_id),
-				mateline = edge_map[mateline_id].graphics;
-
-			var s1_x = npers_pos.x, s1_y = npers_pos.y,
-				e1_x = nmate_pos.x, e1_y = nmate_pos.y;
-
-			Graphics.Lines.changeRLineHoriz(mateline, npers_pos, nmate_pos);
-
-			//  -- update childlines attached to it
-			var childkey_starting = "c:"+mateline_id;   //Look for all childnodes starting with
-
-			for (var key in edge_map){
-				if (key.lastIndexOf(childkey_starting,0) === 0) //startsWith implementation
-				{
-					var find_child_id = key.split('-'),
-						child_id = parseInt(find_child_id[find_child_id.length - 1].trim());
-
-					updateGraph.childline(fam_id, child_id);
-				}
-			}
-
-			// -- mate's childline
-			updateGraph.childline(fam_id, mate.id);	
-
-
-			// -- mate's mate's mateline
-			for (var mm=0 ; mm < mate.mates.length; mm++){
-				var matemate_id = mate.mates[mm].id,
-					matemate_gfx = node_map[matemate_id].graphics;
-
-				var male_id   = (mate.gender===PED.MALE)?mate.id:matemate_id,
-					female_id = (mate.gender===PED.FEMALE)?mate.id:matemate_id;
-
-				if (matemate_id != pers_id){
-
-					var mateline_id = edgeAccessor.matelineID(male_id, female_id),
-						mateline = edge_map[mateline_id].graphics;
-
-//					var s1_x = mate.getX(), 	s1_y = mate.getY(),
-//						e1_x = matemate.getX(), e1_y = matemate.getY();
-
-					Graphics.Lines.changeRLineHoriz(mateline, nmate.getPosition(), matemate_gfx.getPosition());
-
-					// And now their children...!
-					var child_edges = uniqueGraphOps.findAllOffspringEdges(fam_id, male_id, female_id);
-
-					for (var cc=0; cc < child_edges.length; cc++){
-						var ops = child_edges[cc].split('-');
-						var child_id = ops[ops.length-1];
-
-						updateGraph.childline(fam_id, child_id);
-					}
-
-				}
-			}
-		}
-	}
-
-	// NEED TO UPDATE GENERATION)GRID_IDS
-
-	//If last generation, move all sibs
-	if (GlobalLevelGrid.exists(fam_id))
-	{
-		var last_gen = GlobalLevelGrid.getlastgeneration(fam_id);
-
-		if (last_gen.indexOf(pers_id)!== -1)
-		{
-			for (var c=0; c < last_gen.length; c++){
-				var sib_id = last_gen[c],
-					n_sib = node_map[sib_id].graphics;
-
-				n_sib.setY(npers_pos.y);
-
-				if (drawLinesToo){ //Update childlines			
-					updateGraph.childline(fam_id, sib_id);
-				}
-			}
-		}
-	}
-
-
-	//Update own childnode.
-	if (drawLinesToo && (pers.father != 0 && pers.mother !=0))
-	{
-		updateGraph.childline(fam_id, pers.id);	
-	}
-}
-
-
-// Performs redrawNodes upon all
-function touchlines()
-{
-	familyMapOps.foreachperc(function( perid, famid){
-
-		//console.log("touch", perid, famid);
-
-		var e = new CustomEvent("dragmove", {target: {attrs: {x:10, y:10}}}),
-			o = uniqueGraphOps.getFam(famid).nodes[perid].graphics;
-
-		o.dispatchEvent(e);
-	});
-}
-
-
-function linesShow(fid, show){
-	//Hide lines
-	var edges = uniqueGraphOps.getFam(fid).edges;
-	for (var eid in edges)
-		if (show){
-			edges[eid].graphics.show();
-			edges[eid].graphics.setZIndex(-21);
-		}
-		else
-			edges[eid].graphics.hide();
-
-	main_layer.draw();
-}
-
-
-
-
-var GlobalLevelGrid = {
-
-	_map : {}, //fid --> [[gen1], [gen2]]
-
-	clear: function(){
-		GlobalLevelGrid._map = {}
-	},
-
-	insertGrid: function(fid, grid = null)
-	{
-		if (!(fid in GlobalLevelGrid._map)){
-
-			if (grid === null){
-				console.log("GLG: populating null grid");
-				grid = GlobalLevelGrid.__populate(fid);
-			}
-
-			GlobalLevelGrid._map[fid] = grid;
-			return true;
-		}
-		return false;
-	},
-
-	refreshGrid: function(fid){
-		console.log("refreshing");
-		if (!(GlobalLevelGrid.insertGrid(fid))){
-			console.log("grid exists");
-			GlobalLevelGrid.updateGrid(fid,
-				GlobalLevelGrid.__populate(fid))
-		}
-	},
-
-	updateGrid: function(fid, grid){
-		console.log("GLG: update", fid);
-		GlobalLevelGrid._map[fid] = grid;
-	},
-
-	exists: function(fid){
-		return fid in GlobalLevelGrid._map;
-	},
-
-	getGrid: function(fid){
-		if (fid in GlobalLevelGrid._map){
-			return GlobalLevelGrid._map[fid];
-		}
-		return false;
-	},
-
-	deleteGrid: function(fid){
-		if (fid in GlobalLevelGrid._map){
-			delete GlobalLevelGrid._map[fid]
-			return true;
-		}
-		return false;
-	},
-
-	__populate: function(fid, callback1 = 0, callback2 = 0){
-		var root = familyMapOps.getFirst(fid);
-
-		var level_grid = new LevelGrid(root, callback1, callback2);
-		return level_grid.getGrid();
-	},
-
-	foreachfam: function(callback){
-		for (var fid in GlobalLevelGrid._map){
-			var grid = GlobalLevelGrid._map[fid];
-			callback(grid, fid);
-		}
-	},
-
-	foreachgeneration: function(fid, callback){
-		var grid = GlobalLevelGrid.getGrid(fid)
-
-		for (var g=0; g < grid.length; g++){
-			var individuals = grid[g];
-			callback(individuals, g);
-		}
-	},
-
-	numGens: function(fid){
-		var grid = GlobalLevelGrid.getGrid(fid);
-		return grid.length;
-	},
-
-	getlastgeneration: function(fid){
-		var grid = GlobalLevelGrid.getGrid(fid),
-			last_gen = grid.length - 1;
-
-		return grid[last_gen];
-	}
-}
-
-
-
-/* Family Specific */
-class LevelGrid {
-
-	constructor(root_indiv, callback1 = 0, callback2 = 0)
-	{
-		this._map = {};
-		this._alreadytraversed = {};
-
-		this._callback1 = callback1;
-		this._callback2 = callback2;
-
-		this._recurseLevels(root_indiv, 0);
-	}
-
-	getGrid(){
-		if (this._map !== {}){
-			return map2orderedArray(this._map);
-		}
-		console.log("Grid not populated")
-		return false;
-	}
-
-	_recurseLevels(perc, level)
-	{
-		if (perc === 0){
-			return;
-		}
-
-		if (perc.id in this._alreadytraversed){
-			return;
-		}
-		this._alreadytraversed[perc.id] = 1;
-		//console.log(perc.id, level);
-		
-		// Used by init_graph
-		if (this._callback1 !== 0) {this._callback1(perc);}
-
-		if (!(level in this._map)){
-			this._map[level] = [];
-		}
-
-		this._map[level].push( perc.id );
-
-		var lg = this;
-
-		perc.foreachmate(function(mate){
-			lg._recurseLevels(mate, level);
-
-			perc.foreachchild(mate, function(child){
-				lg._recurseLevels(child, level + 1);
-			});
-		});
-
-		// Parents
-		this._recurseLevels( perc.mother, level - 1);
-		this._recurseLevels( perc.father, level - 1);
-
-		// Used by init_graph
-		if (this._callback2 !== 0) {this._callback2(perc);}
-
-		return;
-	}
-}
-/* Family map must be populated and connected before a level map can ge generated */
-
-/** A level grid is made to facilitate determining which generations individuals belong to
-    This class hooks into Level Grid */
-
-class GraphicsLevelGrid {
-
-
-	constructor(fid, graphicsMap = null){
-		this.graphics_map = graphicsMap;	
-		this._populate(fid);
-	}
-
-	getMap(){
-		return this.graphics_map;
-	}
-
-
-	_populate(fid){
-
-		/* Not vars because addTrio uses them */
-		this._unique_edges_fam = {};
-		this._unique_nodes_fam = {
-			0 : {
-				graphics: null
-			}
-		};
-	
-		/* LevelGrid generates a level map whilst using
-		   graphic callbacks */
-		var that = this;
-
-		var level_grid = GlobalLevelGrid.__populate(fid, 
-			function cb1(perc){
-				// Populates this._unique_nodes_fam
-				that.insertNode(perc.id);
-			},
-		
-			function cb2(perc){
-				if (perc.mother != 0 && perc.father != 0){
-					// Populates this._unique_edges_fam
-					that.addTrioEdges(perc.mother, perc.father, perc);
-				}
-			}
-		);
-
-//		console.log(fid, level_grid);
-
-		GlobalLevelGrid.insertGrid(fid, level_grid);
-
-		var uniq_map = {
-			nodes: this._unique_nodes_fam,
-			edges: this._unique_edges_fam
-		};
-
-		this.graphics_map = uniq_map;
-	}
-
-
-	addTrioEdges(moth, fath, child){
-		//= Assume all indivs are != 0
-		var u_matesline = edgeAccessor.matelineID(fath.id, moth.id),
-			u_childline = edgeAccessor.childlineID(u_matesline, child.id);
-
-		//= Edges
-		this.insertEdges(u_matesline, fath.id, moth.id, 0);
-		this.insertEdges(u_childline, u_matesline, child.id, 2);
-
-		//= Nodes
-		this.insertNode(moth.id);
-		this.insertNode(fath.id);
-		this.insertNode(child.id); //Already in
-	}
-
-
-	insertNode(id){
-		if (!(id in this._unique_nodes_fam))
-		{
-			var graphicsObj = null;
-			
-			// If node already has graphics, reinsert it into new map
-			if (this.graphics_map !== null ){
-				graphicsObj = this.graphics_map.nodes[id];
-			}
-
-			this._unique_nodes_fam[id] = {
-				graphics:graphicsObj,		// if being read from pedfile, set later by placePerp
-			 };
-		}
-		else{
-			// Id exists, but perhaps not graphics? reinsert into new map
-			if (this.graphics_map !== null ){
-
-				var graphicsObj = this.graphics_map.nodes[id];
-				this._unique_nodes_fam[id].graphics = graphicsObj;
-			}
-		}
-	}
-
-	insertEdges(id, start_join, end_join, type, 
-		consang = false,
-		mapper = this._unique_edges_fam,
-		graphicsObj = null){
-
-		if (!(id in mapper))
-		{
-			mapper[id] = {
-				graphics:graphicsObj,			//set later by placePerp
-				type:type,
-				start_join_id: start_join,      //Note: IDs, not positions
-				end_join_id: end_join,
-				consangineous: consang 				// Consangineous
-			}
-		}
-	}
-}
-
-
-var FamSpacing = {
-
-
-	init(offset, max_width, debug = false){
-		max_width = max_width || stage.getWidth();
-		offset = offset || 0;
-
-		var placements = FamSpacing.__getFamBounds();
-
-		FamSpacing.__performPacking(placements, max_width, debug);
-		FamSpacing.__setDerivedPositions(placements, offset);
-	},
-
-	// Accessible to node drag functions too
-	getBoundsForFamily: function(fgroup){
-		// Get group width
-		var min_x = 999999999, min_y = 9999999,
-			max_x = 0, max_y = 0;
-
-		var title_y = fgroup.fam_title_text.getY();
-
-		uniqueGraphOps.foreachnode(function(nid, node)
-		{
-			var xer = node.graphics.getX(),
-				yer = node.graphics.getY()
-
-			var l_offs = nodeSize,
-				r_offs = l_offs;
-
-			if (min_x > xer - l_offs){ min_x = xer - l_offs; }
-			if (max_x < xer + r_offs){ max_x = xer + r_offs; }		
-			if (min_y > yer - nodeSize){ min_y = yer - nodeSize; }		
-			if (max_y < yer + nodeSize){ max_y = yer + nodeSize; }
-		}, fgroup.id);
-
-//		var min_y = title_y
-
-		var pos = fgroup.getAbsolutePosition();
-		var w = max_x - min_x,
-			h = max_y - min_y;
-
-		var rect = new Kinetic.Rect({
-			x:min_x + pos.x,
-			y:min_y + pos.y,
-			stroke:"red",
-			strokeWidth: 2,
-			width: w,
-			height: h
-		});
-
-		// Move out of way for now
-		rect.setX(-1000);
-		rect.setY(-1000);
-
-		main_layer.add(rect);
-
-		return {rect: rect, minpos: { x: min_x, y: min_y}};
-	},
-
-
-	__getFamBounds : function()
-	{
-		var fam_placements = {}; // fid -> [position, width]
-
-		uniqueGraphOps.foreachfam(function(fid,fgr)
-		{
-			fgr.group.hide();
-			fam_placements[fid] = FamSpacing.getBoundsForFamily(fgr.group);
-
-		});
-		return fam_placements;
-	},
-
-
-	__performPacking : function(fam_placements, max_width, debug = false)
-	{
-		var start_x = nodeSize,
-			start_y = 50;
-
-		var total_width = max_width,
-			ma_rect;
-
-		if (debug){
-			ma_rect = new Kinetic.Rect({
-				x:total_width,
-				y:0,
-				stroke:"blue",
-				strokeWidth: 2,
-				width: 5,
-				height: stage.getHeight()
-			});
-			
-			main_layer.add(ma_rect);
-			main_layer.draw();
-		}
-
-		for (var group_id in fam_placements)
-		{
-			var group = fam_placements[group_id].rect;
-
-			group.setX( start_x );
-			group.setY( start_y );
-
-			while (true) {
-				var any_collision = false;
-
-				for (var second_id in fam_placements)
-				{
-					if (group_id === second_id){
-						continue;
-					}
-
-					var second_group = fam_placements[second_id].rect;
-
-					if (FamSpacing.__colliding(group, second_group)){
-						any_collision = true;
-						break;
-					}
-				}
-
-				if (any_collision){
-					// shift left;
-					start_x += nodeSize * 3;
-					if (start_x + group.getWidth()*4/5 > total_width)
-					{
-						start_x = nodeSize * 5;
-						start_y += nodeSize * 4;
-					}
-					group.setX(start_x);
-					group.setY(start_y);
-
-					if (debug){
-						main_layer.draw();
-						debugger;
-					}
-					continue;
-				}
-
-				// No collision after testing all -- final position found.
-				break;
-			}
-		}
-
-		if (debug){
-			ma_rect.destroy();
-		}
-
-	},
-
-
-	__setDerivedPositions: function(fam_placements, offsetT = 0)
-	{
-		for (var g_id in fam_placements)
-		{
-			var group = fam_placements[g_id].rect,
-				offset  = fam_placements[g_id].minpos,
-				offx = offset.x,
-				offy = offset.y,
-				fgroup = uniqueGraphOps.getFam(g_id).group;
-
-			fgroup.setX( group.getX() + offsetT - offx );
-			fgroup.setY( group.getY() + offsetT - offy );
-			fgroup.show();
-
-			//Remove rects after ananlyis
-			group.destroy();
-		}
-	},
-
-	__colliding: function(r1,r2){
-	 	var spacing = nodeSize * 2 ;
-
-		var rect1 = {x: r1.getX(), y: r1.getY(), 
-			width: r1.getWidth() + spacing, 
-			height: r1.getHeight() + spacing
-		}
-		var rect2 = {x: r2.getX(), y: r2.getY(), 
-			width: r2.getWidth() + spacing, 
-			height: r2.getHeight() + spacing
-		}
-
-		if (rect1.x < rect2.x + rect2.width &&
-	   		rect1.x + rect1.width > rect2.x &&
-	   		rect1.y < rect2.y + rect2.height &&
-	   		rect1.height + rect1.y > rect2.y) {
-	    	
-	    	return true;
-		}
-	    return false;
-	}
-}
-
-
-
-/*
-function spaceFamGroups2(){
-
-	var fam_placements = {}; // fid -> [position, width]
-
-	familyMapOps.foreachfam(function(fid){
-
-		// Get group width
-		var min_x = 999999999, min_y = 9999999,
-			max_x = 0, max_y = 0;
-
-		var famgfx = uniqueGraphOps.getFam(fid),
-			fgroup = famgfx.group,
-			title_pos = fgroup.fam_title_text.getX(),
-			title_wid = fgroup.fam_title_text.getWidth();
-
-		uniqueGraphOps.foreachnode(function(nid, node)
-		{
-			var xer = node.graphics.getX(),
-				yer = node.graphics.getY()
-
-			var l_offs = nodeSize,
-				r_offs = l_offs;
-
-			if (min_x > xer - l_offs){ min_x = xer - l_offs; }
-			if (max_x < xer + r_offs){ max_x = xer + r_offs; }
-			
-			if (min_y > yer - nodeSize){ min_y = yer - nodeSize; }		
-			if (max_y < yer + nodeSize){ max_y = yer + nodeSize; }
-
-			if (fid === "1001"){
-				console.log(fid, min_x, max_x)
-			}
-
-		}, fid);
-
-		var group_pos = fgroup.getAbsolutePosition(),
-			group_width = max_x - min_x,
-			group_height = max_y - min_y;
-
-		fam_placements[fid] = [fgroup, {x : {min:min_x, max:max_x}, y: {min: min_y, max: max_y}}, group_width, group_height, title_pos];
-		console.log(fid, fam_placements[fid])
-	});
-
-	var start_x = nodeSize * 5,
-		start_y = 50;
-
-	var total_width = stage.getWidth(),
-		last_w = 0;
-
-	for (var f_id in fam_placements){
-		var pack = fam_placements[f_id];
-
-		var	group = pack[0],
-			pos = pack[1],
-			w = pack[2],
-			h = pack[3],
-			title_pos = pack[4]
-
-		
-		var new_x = start_x - pos.x.min;
-
-		group.setX( new_x );
-		group.setY( start_y );
-
-		group.hit = function(res){
-			console.log("HIT", res);
-		}
-
-		if (start_x + w > 500){
-			start_x = 10;
-			start_y = h + nodeSize*2;
-		}
-
-		start_x += w + nodeSize*4;
-
-		group.add( new Kinetic.Rect({
-			x:pos.x.min,
-			y:0,
-			stroke:"red",
-			strokeWidth: 2,
-			width: w,
-			height: h + pos.y.min
-		}));
-
-
-		last_w = w;
-	}
-}
-*/
-/// DO NOT BOTHER TO CHAIN THE END OF ONE TWEEN TO THE START OF ANOTHER
-// the onFinish function in the tweening stage executes only after a node
-// has been launched, and it does not wait for it to finish.
-//
-// Rely on the more or less precise timings set by the setTimeout wrapper.
-
-
-var FancyGraphics = {
-
-	__start : null,
-	__step : 50,
-	__fromLeft : false,
-
-	__initial : {
-		scale : 50,
-		x: -100,
-		y: 2000,
-		duration: 0.5
-	},
-
-
-	init: function()
-	{
-		//Reset
-		FancyGraphics.__start = 0;
-		FancyGraphics.__fromLeft = Math.round(Math.random()) === 0;
-		FancyGraphics.__initial.y *= FancyGraphics.__fromLeft?-1:1;
-
-		//Init
-		FancyGraphics.__placeFamText();
-		FancyGraphics.__placeNodes();
-		FancyGraphics.__placeLines();
-	},
-
-
-	__place: function(graphics, step)
-	{
-		var positions = {
-			x: graphics.getX(),
-			y: graphics.getY()
-		}
-
-		var initial = FancyGraphics.__initial;
-
-		graphics.setScale({x:initial.scale, y:initial.scale});
-		graphics.setX(initial.x);
-		graphics.setY(initial.y);
-		graphics.moveToTop();
-
-		setTimeout(function(){
-			kineticTween({
-				node:graphics,
-				scaleX:1,
-				scaleY:1,
-				x : positions.x,
-				y : positions.y,
-				duration: initial.duration,
-				easing: Kinetic.Easings.StrongEaseOut
-			}).play();
-		
-		}, FancyGraphics.__start);
-
-		// Stagger placement interval
-		FancyGraphics.__start += step;
-	},
-
-
-	__placeFamText(){
-		uniqueGraphOps.foreachfam(function(fid,fgroup){
-			FancyGraphics.__place(
-				fgroup.group,
-				FancyGraphics.__step * 2
-			);
-		});
-	},
-
-	__placeNodes(){
-		FancyGraphics.__start += 500; // pause
-
-		uniqueGraphOps.foreachnode(function(pid,fid,node){
-			node.graphics.show()
-			FancyGraphics.__place(
-				node.graphics,
-				FancyGraphics.__step
-			);
-		});
-	},
-
-
-	__placeLines(){
-		FancyGraphics.__start += 200; // pause
-
-		var show_interval = FancyGraphics.__start + FancyGraphics.__initial.duration*1000;
-
-		// Hide all edges until nodes are placed
-		uniqueGraphOps.foreachedge(function(eid,fid,edge){
-			edge.graphics.hide();
-
-/*			setTimeout(function(){
-				kineticTween({
-					node:edge.graphics,
-					visible: true,
-					duration: 3
-				});
-			}, show_interval);*/
-		});
-
-		// Final touch
-		setTimeout(function(){
-			uniqueGraphOps.foreachedge(function(eid,fid,edge){
-				edge.graphics.show();
-			});
-
-			touchlines();
-			main_layer.draw();
-		},
-		show_interval);
-	}
-}
-	
-
-
 
 var SelectionGraphics = {
 
 	// Shared with homology_selection.js
 	// Replicate existing objects with bounding square
-	addBounder: function(pos, key, main_layer_yes, hasHaplo){
+	addBounder: function(pos, key, main_layer_yes, hasHaplo, scale = null){
 
 		if (hasHaplo === null){
 			var fid_id = key.split('_').map(x => Number(x));
 			hasHaplo = familyMapOps.getPerc(fid_id[1], fid_id[0]).hasHaplo();
 		}
+
+		if (scale !== null){
+			pos.x /= scale.x;
+			pos.y /= scale.y;
+		}
+
+		// correct for scaling
 
 		var rect = SelectionGraphics._addInvisibleOrangeBox(pos);
 		rect.on('click', function(){
@@ -8260,18 +8388,30 @@ var SelectionMode = {
 		SelectionAction.reset();
 		ButtonModes.setToSelectionMode()
 
+		// Transformed stage requires recalculation of what's being presented on screen
+		let stage_offset = stage.getAbsolutePosition(),
+			stage_scale  = main_layer.getScale();
+
+		let stage_x = -stage_offset.x / stage_scale.x,
+			stage_y = -stage_offset.y / stage_scale.y,
+			stage_w = stage.getWidth() / stage_scale.x,
+			stage_h = stage.getHeight() / stage_scale.y;
+
+
 		// Main selection layer
 		SelectionMode._select_group = new Kinetic.Group({
-			x:0, y:0,
-			width: stage.getWidth(),
-			height: stage.getHeight()
+			x:stage_x, y:stage_y,
+			width: stage_w,
+			height: stage_h
 		});
 
 
+
 		SelectionMode._background = new Kinetic.Rect({
-			x:0, y:0,
-			width: stage.getWidth(),
-			height: stage.getHeight(),
+			x: 0,
+			y: 0,
+			width: stage_w,
+			height: stage_h,
 			fill: 'black',
 			strokeWidth: 0,
 			opacity: 0.1
@@ -8305,7 +8445,9 @@ var SelectionMode = {
 
 					var gfx = uniqueGraphOps.getFam(fid).nodes[node_id].graphics,
 						pos = gfx.getAbsolutePosition(),
-						bounder = SelectionGraphics.addBounder(pos, key, true, hasHaplo);
+						bounder = SelectionGraphics.addBounder(pos, key, true, hasHaplo, stage_scale);
+
+
 
 					gfx.attrs.draggable = false;
 
@@ -8327,8 +8469,9 @@ var SelectionMode = {
 		});
 
 		// Exit button
-		SelectionMode._exit = addExitButton(
-			{x: 20, y: 20},
+		SelectionMode._exit = addExitButton({
+			x: 20, y: 20, scale: stage_scale
+		},
 			SelectionMode.quit,
 			3
 		);
@@ -8541,6 +8684,18 @@ var HaploWindow = {
 		var line_data = findDOSinSelection( SelectionMode._ids_map );
 
 		HaploWindow._makeMainWindow( line_data );
+		HaploWindow._compensateOffset();
+	},
+
+	_compensateOffset : function()
+	{
+		let stage_pos = stage.getPosition();
+
+		HaploWindow._group.setX( -stage_pos.x );
+		HaploWindow._group.setY( -stage_pos.y );
+
+		HaploWindow._background.setX( -stage_pos.x );
+		HaploWindow._background.setY( -stage_pos.y );
 	},
 
 
@@ -10721,7 +10876,7 @@ function graphInitPos(start_x, start_y, enable_ped_edit = false){
 			var posx = -1, 
 				ypos = -1;
 
-			if (typeof perp.stored_meta !== "undefined"){
+			if (perp.stored_meta !== undefined){
 				//console.log("using stored meta", perp_id, perp.stored_meta);
 				var meta = perp.stored_meta;
 
@@ -10732,16 +10887,16 @@ function graphInitPos(start_x, start_y, enable_ped_edit = false){
 
 				delete perp.stored_meta;
 
+				/* -- FIX, orphaned nodes are a problem.
 				if (perp.mother === 0 && perp.father === 0){
 	
 					n_perp.graphics = Graphics.Pedigree.addPerson(perp, fam_group, posx, y_pos);
-					console.log("adding", n_perp.graphics);
 
 					if (enable_ped_edit){
 						n_perp.graphics.family = fam;
 					 	personDraw.addClickFunctions(n_perp.graphics);
 			 		}
-			 	}
+			 	}*/
 			}
 		});
 
@@ -11212,7 +11367,7 @@ var HaploPedProps = {
 
 				// This is where we need to manually insert the 
 				//  other non-connected individuals
-
+				
 				familyMapOps.foreachperc(function(perc_id, perp){
 					if (!(perc_id in nodes_edges.nodes)){
 				
@@ -12488,6 +12643,10 @@ var HomologySelectionMode = {
 		HomologySelectionMode.__addBounders();
 
 		haplo_layer.add(HomologySelectionMode.sub_select_group);
+
+		let stage_offset = stage.getPosition();
+		HomologySelectionMode.sub_select_group.setX( -stage_offset.x )
+		HomologySelectionMode.sub_select_group.setY( -stage_offset.y )
 		haplo_layer.draw();
 	},
 
@@ -12727,7 +12886,9 @@ var HomologyMode = {
 			 HomologyMode.quit,
 			 0
 		);
-		HomologySelectionMode.sub_select_group.add( HomologyMode._exit );
+		HomologySelectionMode.sub_select_group.add(
+			HomologyMode._exit
+		);
 
 		HomologyButtons.init();
 	},
@@ -13727,18 +13888,26 @@ class BenchPerson  extends Person {
 	findAvailableCousin(){
 		let cousins = BenchPerson.generation_map[this.generation]; // Same generation
 
+		let already_married_match = null;
+
 		for (let c_id in cousins)
 		{
 			let cousin = cousins[c_id];
 
-			if (cousin.mother === null){ continue; }    
-		    if (cousin.mother.id === this.mother.id || cousin.father.id === this.father.id){ continue; } // Not Sibs
+			if (cousin.mother === null){ continue; }
 		    if (cousin.gender === this.gender){ continue; } // Straight
-		    if (cousin.mates.length > 0){ continue; } // Available
+		    if (cousin.mother.id === this.mother.id || cousin.father.id === this.father.id){ continue; }
+
+		     // Available? If can't find a match use this indiv
+		    if (cousin.mates.length > 0){
+		    	already_married_match = cousin;
+		    	continue; 
+		    }
 		    //  console.log("inbreeding:", this.id, cousin.id);	    
 		    return cousin;
 		}
-		return null; // no matches found
+
+		return already_married_match; // null if no matches found
 	}
 
 
@@ -14071,6 +14240,11 @@ var BenchMark = {
         BenchStopwatch.start(
             function (rendertime) {
                 endfunction(treetime, metrics.numpeople, metrics.numinbredcouples, rendertime);
+                utility.notify("Benchmark", 
+                    metrics.numpeople+" individuals, " +
+                    metrics.numinbredcouples + " inbred couples," +
+                    "Render Time=" + (rendertime/1000).toFixed(3) +" s", 5);
+
             }
         );
 
@@ -14149,6 +14323,7 @@ function onWindowLoad(){
     userOpts.setGraphics();
     Settings.init();
 
+
     //setTimeout(function(){
     //    Test.Benchmark.start();
     //}, 1000);
@@ -14210,8 +14385,8 @@ var Resize = {
 	            	width_over = true;
 	            }
 
-	            HaploWindow._background.setWidth(newWidth);
-	            SelectionMode._background.setWidth(newWidth);
+	            HaploWindow._background.setWidth(newWidth / main_layer.getScale().x);
+	            SelectionMode._background.setWidth(newWidth / main_layer.getScale().x);
 	            stage.setWidth(newWidth);
 
 
@@ -14234,11 +14409,11 @@ var Resize = {
 	            }
 
 	            HaploWindow._background.setHeight(stageHeight);
-	            SelectionMode._background.setHeight(stageHeight);
+	            SelectionMode._background.setHeight(stageHeight / main_layer.getScale().y);
 	            stage.setHeight(stageHeight);
 
 	            if (  ModeTracker.currentMode === ModeTracker.modes.pedcreate
-	                ||ModeTracker.currentMode === ModeTracker.modes.haploview){
+	               || ModeTracker.currentMode === ModeTracker.modes.haploview){
 	                  FamSpacing.init(20);
 	            }
 
