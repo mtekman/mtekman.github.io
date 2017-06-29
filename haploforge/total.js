@@ -19,6 +19,116 @@
 
 
 document.write('\
+        <div id="selection_tools" class="input_props" >\
+          <h3 id="selection_title" ></h3>\
+          <table id="selection_table" >\
+          </table>\
+        </div>\
+\
+        <!-- Save Dialogs -->\
+        <div id="save_and_close" class="input_props" >\
+          <h3 id="save_and_close_title"> General Opts. </h3>\
+          <table id="save_and_close_table">\
+          </table>\
+        </div>\
+');
+
+document.write('\
+\
+  <div id="maincircle">\
+\
+    <input id="haploupload" type="button" \
+                 onclick="MainButtonActions.fileUpload()" />\
+\
+    <input id="haploresume" type="button"\
+                 onclick="MainButtonActions.loadHaploFromStorage()"  />\
+\
+    <input id="pedmodebutton" type="button"\
+                 onclick="MainButtonActions.createNewPed()" />\
+\
+    <input id="pedresume" type="button"\
+                 onclick="MainButtonActions.loadPedFromStorage()" />\
+\
+    <ul class="nodots">\
+      <li class="smallspace">\
+          <div class="cornerspace lower">\
+              <a href="https://github.com/mtekman/haploforge" >source code</a>\
+              <br />\
+              <a href="test/supplemental_test_data.7z" id="test_assets" >test assets</a>\
+          </div>\
+          <h1>HaploForge</h1>\
+          <h2 class="smallspace">Extensive Haplotype Resolution and Pedigree Creation Tool</h2>\
+          <div class="cornerspace upper">\
+            <a onclick="BenchMark.launch_display()" >benchmarking</a>\
+          </div>\
+      </li>\
+      <li>\
+        <label id="haploupload_label" for="haploupload">Visualize New Haplotypes</label>\
+        <label id="haploresume_label" for="haploresume">Resume Previous Analysis</label>\
+      </li>\
+      <li>\
+        <hr class="style15">\
+      </li>\
+      <li>\
+        <label id="pedmodebutton" for="pedmodebutton">Create New Pedigree</label>\
+        <label id="pedresume_label" for="pedresume">Resume Pedigree</label>\
+      </li>\
+    </ul>\
+    <img id="settings_wheel" src="public_assets/images/settings_wheel.png" ></img>\
+  </div>\
+');
+
+document.write('\
+\
+<div id="homology_buttons" class="input_props" >\
+<!--            <input type=button id="hom_exit" value="X" />-->\
+\
+            <table>\
+                <tr>\
+                    <td colspan="2" >\
+                        <select id="plot_type">\
+                            <option selected value="HOM" >Homozygous</option>\
+                            <option value="HET" >Heterozygous</option>\
+                            <option value="CHET" >Compound Het.</option>\
+                        </select>\
+                    </td>\
+                </tr>\
+\
+                <tr>\
+                    <td>\
+                        <label for="zygous_min_stretch">Min Exten:</label>\
+                    </td>\
+                    <td>\
+                        <input type=number id="zygous_min_stretch" value="1" min=1 />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td>\
+                        <label for="zygous_min_score"  >Min Score:</label>\
+                    </td>\
+                    <td>\
+                        <input type=number id="zygous_min_score" value="1" min=1 />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td colspan="2">\
+                        <input type=button id="homology_redraw" value="Update" />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td colspan="2">\
+                        <input type=button id="homology_export" value="Export Data" />\
+                    </td>\
+                </tr>\
+            </table>\
+        </div>\
+');
+
+
+document.write('\
+<div id="settings_box"></div>\
+')
+document.write('\
         <div id="useropts">\
           <label><input type="checkbox" id="user_fancy" onchange="userOpts.update(\'fancyGraphics\',this.checked); userOpts.setGraphics(this.checked);" />Adv. Graphics</label><br/>\
           <!--<label><input type="checkbox" id="user_tooltips" onchange="userOpts.update(\'showTooltips\', this.checked);" />Tooltips</label>-->\
@@ -139,48 +249,17 @@ document.write('\
 ');
 
 document.write('\
-\
-  <div id="maincircle">\
-\
-    <input id="haploupload" type="button" \
-                 onclick="MainButtonActions.fileUpload()" />\
-\
-    <input id="haploresume" type="button"\
-                 onclick="MainButtonActions.loadHaploFromStorage()"  />\
-\
-    <input id="pedmodebutton" type="button"\
-                 onclick="MainButtonActions.createNewPed()" />\
-\
-    <input id="pedresume" type="button"\
-                 onclick="MainButtonActions.loadPedFromStorage()" />\
-\
-    <ul class="nodots">\
-      <li class="smallspace">\
-          <div class="cornerspace lower">\
-              <a href="https://github.com/mtekman/haploforge" >source code</a>\
-              <br />\
-              <a href="test/supplemental_test_data.7z" id="test_assets" >test assets</a>\
-          </div>\
-          <h1>HaploForge</h1>\
-          <h2 class="smallspace">Extensive Haplotype Resolution and Pedigree Creation Tool</h2>\
-          <div class="cornerspace upper">\
-            <a onclick="BenchMark.launch_display()" >benchmarking</a>\
-          </div>\
-      </li>\
-      <li>\
-        <label id="haploupload_label" for="haploupload">Visualize New Haplotypes</label>\
-        <label id="haploresume_label" for="haploresume">Resume Previous Analysis</label>\
-      </li>\
-      <li>\
-        <hr class="style15">\
-      </li>\
-      <li>\
-        <label id="pedmodebutton" for="pedmodebutton">Create New Pedigree</label>\
-        <label id="pedresume_label" for="pedresume">Resume Pedigree</label>\
-      </li>\
-    </ul>\
-    <img id="settings_wheel" src="public_assets/images/settings_wheel.png" ></img>\
-  </div>\
+<div id="index_class" class="input_props" >\
+           <span class="not-numbers">\
+                <label for="marker_min">From:</label>\
+                <input id="marker_min" list="marker_list_min" />\
+                <label for="marker_max">To:</label>\
+                <input id="marker_max" list="marker_list_max" />\
+                <datalist id="marker_list_min" ></datalist>\
+                <datalist id="marker_list_max" ></datalist>\
+                <input type=button value="Go" id="index_submit" />\
+            </span>\
+        </div>\
 ');
 
 document.write('\
@@ -260,24 +339,6 @@ document.write('\
         </div>\
 ');
 
-
-document.write('\
-<div id="settings_box"></div>\
-')
-document.write('\
-<div id="index_class" class="input_props" >\
-           <span class="not-numbers">\
-                <label for="marker_min">From:</label>\
-                <input id="marker_min" list="marker_list_min" />\
-                <label for="marker_max">To:</label>\
-                <input id="marker_max" list="marker_list_max" />\
-                <datalist id="marker_list_min" ></datalist>\
-                <datalist id="marker_list_max" ></datalist>\
-                <input type=button value="Go" id="index_submit" />\
-            </span>\
-        </div>\
-');
-
 document.write('\
       <div id="status_props" class="status">\
           <div class="reflect" id="status_head">Header</div>\
@@ -340,67 +401,6 @@ document.write('\
                <td><input id="bench_export_haplo" type="checkbox" /></td>\
              </tr>\
            </table>\
-        </div>\
-');
-
-document.write('\
-\
-<div id="homology_buttons" class="input_props" >\
-<!--            <input type=button id="hom_exit" value="X" />-->\
-\
-            <table>\
-                <tr>\
-                    <td colspan="2" >\
-                        <select id="plot_type">\
-                            <option selected value="HOM" >Homozygous</option>\
-                            <option value="HET" >Heterozygous</option>\
-                            <option value="CHET" >Compound Het.</option>\
-                        </select>\
-                    </td>\
-                </tr>\
-\
-                <tr>\
-                    <td>\
-                        <label for="zygous_min_stretch">Min Exten:</label>\
-                    </td>\
-                    <td>\
-                        <input type=number id="zygous_min_stretch" value="1" min=1 />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td>\
-                        <label for="zygous_min_score"  >Min Score:</label>\
-                    </td>\
-                    <td>\
-                        <input type=number id="zygous_min_score" value="1" min=1 />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td colspan="2">\
-                        <input type=button id="homology_redraw" value="Update" />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td colspan="2">\
-                        <input type=button id="homology_export" value="Export Data" />\
-                    </td>\
-                </tr>\
-            </table>\
-        </div>\
-');
-
-document.write('\
-        <div id="selection_tools" class="input_props" >\
-          <h3 id="selection_title" ></h3>\
-          <table id="selection_table" >\
-          </table>\
-        </div>\
-\
-        <!-- Save Dialogs -->\
-        <div id="save_and_close" class="input_props" >\
-          <h3 id="save_and_close_title"> General Opts. </h3>\
-          <table id="save_and_close_table">\
-          </table>\
         </div>\
 ');
 
@@ -1060,6 +1060,71 @@ var Pedfile = {
 		}
 	},
 
+	sanity_check: function(){
+		let unrelated = {}; //
+		let checked = {}; // key of checked pairs
+
+		familyMapOps.foreachfam(function(fid,fam_group){
+			familyMapOps.foreachperc(function(pid1, fid, perc1){
+				familyMapOps.foreachperc(function(pid2, fid, perc2)
+				{
+					if (pid1 === pid2){ return };
+
+					if (!(fid in checked)){
+						checked[fid] = {};
+					}
+
+					if (!(pid1 in checked)){
+						checked[fid][pid1] = {}
+					}
+
+					if (!(pid2 in checked)){
+						checked[fid][pid2] = {}
+					}
+
+					if (checked[fid][pid1][pid2] || checked[fid][pid2][pid1]){ return	};
+
+					checked[fid][pid1][pid2] = true;
+					checked[fid][pid2][pid1] = true;
+
+					let res = familyMapOps.areConnected(fid, pid1, pid2);
+					if (!res){
+						if (!(fid in unrelated)){
+							unrelated[fid] = {}
+						}
+						if (!(pid1 in unrelated[fid])){
+							unrelated[fid][pid1] = {}
+						}
+						if (!(pid2 in unrelated[fid])){
+							unrelated[fid][pid2] = {}
+						}
+						unrelated[fid][pid1][pid2] = true;
+						unrelated[fid][pid2][pid1] = true;
+					}
+				});
+			}, fid);
+		});
+
+		// Go through unrelated connections and single out the main targets.
+		let mentions = {};
+
+		for (var fid in unrelated){
+			mentions[fid] = {};
+			for (var id1 in unrelated[fid]){
+
+				let targets = unrelated[fid][id1];
+				for (var targ in targets){
+					if (!(targ in mentions[fid])){
+						mentions[fid][targ] = 0
+					}
+					mentions[fid][targ] += 1				
+				}
+			}
+		}
+
+		return mentions;
+	},
+
 	exportToTab: function(store_graphics){
 		exportToTab(Pedfile.export(store_graphics));
 	},
@@ -1067,7 +1132,22 @@ var Pedfile = {
 
 	export: function(store_graphics)
 	{
+		let allconnected = Pedfile.sanity_check();
+		console.log(allconnected, Object.keys(allconnected), Object.keys(allconnected) > 0);
+
+		if (Object.keys(allconnected).length > 0){
+			utility.yesnoprompt(
+				"Unconnected Individuals Detected",
+				"These will be truncated from the pedigree. Continue with save?",
+				"Yes", function(){},
+				"No", function(){
+					return -1;					
+				}
+			);
+		}
+
 		var text = "";
+
 
 		// Family-header specific 
 		if (store_graphics)
@@ -1088,7 +1168,7 @@ var Pedfile = {
 				perc.father.id || 0, 
 				perc.mother.id || 0, 
 				perc.gender, perc.affected
-			]
+			]			
 
 			if (store_graphics){
 				var gfx = uniqueGraphOps.getNode(pid, fid);
@@ -2220,15 +2300,15 @@ class LevelGrid {
 	_recurseLevels(perc, level)
 	{
 		if (perc === 0){
-			return;
+			return 0;
 		}
 
 		if (perc.id in this._alreadytraversed){
-			return;
+			return 0;
 		}
 		this._alreadytraversed[perc.id] = 1;
 		//console.log(perc.id, level);
-		
+
 		// Used by init_graph
 		if (this._callback1 !== 0) {this._callback1(perc);}
 
@@ -2255,7 +2335,7 @@ class LevelGrid {
 		// Used by init_graph
 		if (this._callback2 !== 0) {this._callback2(perc);}
 
-		return;
+		return 0;
 	}
 }
 /* Family map must be populated and connected before a level map can ge generated */
@@ -2399,16 +2479,27 @@ var FamSpacing = {
 
 		uniqueGraphOps.foreachnode(function(nid, node)
 		{
+			if (node.graphics === null){
+				console.log("Skipping individual", nid, " due to no graphics and deleting them");
+				uniqueGraphOps.deleteNode(nid, fgroup.id);
+
+				if (familyMapOps.percExists(nid, fgroup.id)){
+					familyMapOps.removePerc(nid, fgroup.id);
+				}
+				return -1;
+			}
+
 			var xer = node.graphics.getX(),
 				yer = node.graphics.getY()
 
 			var l_offs = nodeSize,
 				r_offs = l_offs;
 
-			if (min_x > xer - l_offs){ min_x = xer - l_offs; }
-			if (max_x < xer + r_offs){ max_x = xer + r_offs; }		
+			if (min_x > xer - l_offs  ){ min_x = xer - l_offs; }
+			if (max_x < xer + r_offs  ){ max_x = xer + r_offs; }		
 			if (min_y > yer - nodeSize){ min_y = yer - nodeSize; }		
 			if (max_y < yer + nodeSize){ max_y = yer + nodeSize; }
+
 		}, fgroup.id);
 
 //		var min_y = title_y
@@ -2429,6 +2520,7 @@ var FamSpacing = {
 		// Move out of way for now
 		rect.setX(-1000);
 		rect.setY(-1000);
+		rect.setVisible(false);
 
 		main_layer.add(rect);
 
@@ -3160,22 +3252,24 @@ var MouseResize = {
 
 		var wheelstatechanged = false;
 
-		if ((delta > 0 && MouseResize._prevwheelstate < 0)
-		  ||(delta < 0 && MouseResize._prevwheelstate > 0))
+		if ( (delta > 0 && MouseResize._prevwheelstate < 0)
+		  || (delta < 0 && MouseResize._prevwheelstate > 0))
 		{
-			wheelstatechanged = true
+			wheelstatechanged = true;
 		}
 
 		if (!wheelstatechanged){
 			let new_scale = main_layer.getScale().x + delta;
+			if (new_scale < 0.1){ new_scale = 0.1;}
 			
 			main_layer.setScale({
-				x:new_scale,y:new_scale
+				x : new_scale, 
+				y : new_scale
 			});
 			utility.notify("Scale", new_scale.toFixed(1))
 			main_layer.draw();
 		}
-		MouseResize._prevwheelstate = delta;
+		MouseResize._prevwheelstate = delta
 	},
 
 	on : function(handler)
@@ -3375,6 +3469,7 @@ var SerialParse = {
 						graphics = fid_graphics[1].split(",").map(Number);
 
 					var fam_group = Graphics.Pedigree.addFamily(fid, graphics[0], graphics[1]);
+					Pedfile.__tmpfamdata[fid] = graphics;  // passed onto init_graph
 
 					uniqueGraphOps.insertFam(fid, fam_group);
 					// familyMapOps.insertFam is performed automatically at person level.
@@ -3424,6 +3519,7 @@ var messProps = {
 		this._box.style.display = "none";
 		this._box.style.zIndex = -99;
 	},
+
 	show: function(){ 
 		Keyboard.pause()
 		this._box.style.display = "block";
@@ -3520,7 +3616,7 @@ var messProps = {
 		/*function(val){
 			console.log(val);
 			callback(val.innerHTML);
-//			messProps._aftercallbacks();
+			//messProps._aftercallbacks();
 		});*/
 	},
 
@@ -3530,8 +3626,8 @@ var messProps = {
 		this._text.style.display = "none";
 		this._text.value = "";
 
-		this._buttonrow._old_html = this._buttonrow.innerHTML;
-		this._buttonrow.innerHTML = input_html;
+		this._buttonrow._old_html = this._buttonrow.innerHTML;  //
+		this._buttonrow.innerHTML = input_html; 				//
 
 		var that = this;
 
@@ -3984,33 +4080,34 @@ var Settings = {
 
 	bindings : {
 		"global" : {
-			"Toggle All" : 'A',
-			"Toggle Affecteds" : 'F',
-			"Submit" : 'Enter',
-			"Marker Search" : "M",
-			"Save" : 'Ctrl+S',
-			"Exit Mode"    : "Escape",
+			"Toggle All" 				: 'A',
+			"Toggle Affecteds" 			: 'F',
+			"Submit" 					: 'Enter',
+			"Marker Search" 			: "M",
+			"Save" 						: 'Ctrl+S',
+			"Exit Mode"    				: "Escape",
+			"Reset Family Positions" 	: "Ctrl+R"
 		},
 
 		"comparison" : {
-			"Compare Genotypes" : 'G',
-			"Prev. Recomb."  : '[',
-			"Next  Recomb."  : ']',
-			"Align Pedigree" : 'V',
-			"Recolour Haploblocks" : 'R'
+			"Compare Genotypes" 		: 'G',
+			"Prev. Recomb."  			: '[',
+			"Next  Recomb."  			: ']',
+			"Align Pedigree" 			: 'V',
+			"Recolour Haploblocks" 		: 'R'
 		},
 
 		"haploview" : {
-			"Start Analysis" : 'Enter',
-			"Modify Pedigree": 'Ctrl+M'
+			"Start Analysis" 			: 'Enter',
+			/*"Modify Pedigree"			: 'Ctrl+M'*/
 		},
 
 		"pedcreate" : {
-			"Add Individual" : 'I',
-			"Add Family" : 'F',
-			"Mate-Mate" : 'M',
-			"Parent-Offspring" : 'P',
-			"Export" :  'Ctrl+E'
+			"Add Individual" 			: 'I',
+			"Add Family" 				: 'F',
+			"Mate-Mate" 				: 'M',
+			"Parent-Offspring" 			: 'P',
+			"Export" 					: 'Ctrl+E'
 		}
 	},
 	__defaults : {}, // populated as bindingsChange
@@ -4454,6 +4551,7 @@ var MainButtonActions  = {
 			Pedfile.import(ped_data);
 		} else {
 			ped_data = localStorage.getItem( localStor.transfer );
+			console.log(ped_data);
 			//Do.Something.Else();
 		}
 
@@ -4463,6 +4561,9 @@ var MainButtonActions  = {
 	savePedToStorage: function() {
 
 		var ped_to_string = Pedfile.export(true); 
+		if (ped_to_string === -1){
+			return;
+		}
 		/*always store graphics for local, only export has no graphics option*/
 
 		localStorage.setItem( localStor.ped_save, ped_to_string );
@@ -4616,7 +4717,7 @@ var CSSMarkerRange = {
 
 		HaploBlock.redrawHaplos(true);
 
-		CSSMarkerRange.hideIndexCSS();
+		CSSMarkerRange.__hideIndexCSS();
 	}
 }
 /* Class that rewrites the selection_tools div to swap in tools for each mode */
@@ -4892,15 +4993,25 @@ var ToolButtons = {
 				"Begins the selection process",
 				SelectionMode.init);
 
-			ToolButtons.addToolsButton("Modify Pedigree",
+			/*ToolButtons.addToolsButton("Modify Pedigree",
 				Settings.bindings.haploview["Modify Pedigree"],
 				"[NOT YET IMPLEMENTED]Modifies the current pedigree",
 				
 				function(){
-					localStorage.setItem(localStor.transfer, MainButtonActions._temphaploload);
+					localStorage.setItem(localStor.transfer, SerialParse.All.exportAsPed());
 					utility.notify("transferring","...");
 
 					MainButtonActions.loadPedFromStorage(true);
+				}
+			);*/
+
+			ToolButtons.addToolsButton("Reset Positions",
+				Settings.bindings.haploview["Reset Family Positions"],
+				"Packs families next to each other",
+				
+				function(){
+					FamSpacing.init();
+					autoScaleStage();
 				}
 			);
 		},
@@ -6416,7 +6527,7 @@ var haploblock_buffers = {
 
 var haploblock_spacers = {
 	marker_offset_px: ((MarkerData.maxlen_marker+1)*haploblock_settings.space_pixels)+1,
-	person_offset_px: 60.19, //10 * haploblock_settings.space_pixels,
+	person_offset_px: 10 * haploblock_settings.space_pixels,
 	block_width_px: HAP_VERT_SPA*1.2,
 	block_offset_px: (HAP_VERT_SPA*1.2) +2
 };
@@ -6922,8 +7033,61 @@ var familyMapOps = {
 				}
 			}
 		}, family_id);
+	},
+
+
+	/** Members of the same family are actually related via some DOS */
+	areConnected: function(perc1_fam_id, perc1_id, perc2){
+
+		let perc1 = familyMapOps.getPerc(perc1_id, perc1_fam_id),
+			perc2_id = Number(perc2);
+
+		var traversed = {};
+
+		function recurseSearch(perc){
+			if (perc === 0){
+				return 0;
+			}
+
+			if (perc.id in traversed){
+				return 0;
+			}
+			traversed[perc.id] = 1;
+
+			if (perc.id === perc2_id){
+				return true;
+			}
+
+
+			for (var m=0; m < perc.mates.length; m++){
+				let mate = perc.mates[m];
+				let res00 = recurseSearch(mate);
+				if (res00 === true){
+					return true;
+				}
+
+				for (var c =0; c < perc.children.length; c++){
+					let child = perc.children[c];
+					let res01 = recurseSearch(child);
+					if (res01 === true){
+						return true;
+					}
+				}								
+			}
+
+			// Parents
+			let res1 = recurseSearch( perc.mother);
+			let res2 = recurseSearch( perc.father);
+
+			if (res1  === true || res2  === true){
+				return true
+			}
+			return false;
+		}
+		return recurseSearch(perc1);
 	}
 }
+
 
 var uniqueGraphOps = {
 
@@ -7046,7 +7210,9 @@ var uniqueGraphOps = {
 		if (family_id in uniqueGraphOps._map){
 			if (id in uniqueGraphOps._map[family_id].nodes)
 			{
-				uniqueGraphOps._map[family_id].nodes[id].graphics.destroy();
+				if (uniqueGraphOps._map[family_id].nodes[id].graphics !== null){
+					uniqueGraphOps._map[family_id].nodes[id].graphics.destroy();
+				}
 				delete uniqueGraphOps._map[family_id].nodes[id];
 				return 0;
 			}
@@ -9462,7 +9628,6 @@ class LineDrawOps {
 		this._onbeginlinedraw_mousemove = null;
 		this._onbeginlinedraw_mouseup = null;
 		this._onendlinedraw = null;
-
 	}
 
 
@@ -9480,16 +9645,19 @@ class LineDrawOps {
 
 	_addHitRect() {
 
+		let spos = stage.getAbsolutePosition();
+
 		this._layer = (new Kinetic.Layer({
 			width: stage.getWidth(),
 			height:stage.getHeight(),
-			x:0, y:0
+			scale : main_layer.getScale(),
+			x:-spos.x, y: -spos.y
 		}));
 
 		this._tmpRect = (new Kinetic.Rect({
 			width: stage.getWidth(),
 			height:stage.getHeight(),
-			x:0, y:0,
+			x:0, y:0
 		}))
 
 		stage.add( this._layer );
@@ -9515,9 +9683,13 @@ class LineDrawOps {
 
 
 	beginLineDraw() {
+		MouseResize.off()
+
 		var _this = this;
 
 		_this._tmpLine = new Kinetic.Line({
+			x: 0,
+			y: 0,
 			stroke: 'black',
 			strokeWidth: 2,
 		});
@@ -9530,7 +9702,10 @@ class LineDrawOps {
 				var mouseX = Math.floor(event.evt.clientX/grid_rezX)*grid_rezX,
 					mouseY = Math.floor(event.evt.clientY/grid_rezY)*grid_rezY;
 
-				_this._endPoint = {x: mouseX, y: mouseY};
+				_this._endPoint = {
+					x: mouseX, 
+					y: mouseY
+				};
 
 				_this.updateLine();
 
@@ -9569,13 +9744,19 @@ class LineDrawOps {
 
 		this._startPoint = {x:-1, y:-1}
 
+		// restore draggable if previously set
+		MouseResize.on()
+		stage.setDraggable( this.stage_draggable_state );
+
 	}
 
 	drawCircles(){
+		this.stage_draggable_state = stage.getDraggable();
+		MouseResize.off()
 
 		var _this = this;
 
-		var circleGroup = new Kinetic.Group({});
+		var circleGroup = new Kinetic.Group({x:0, y:0});
 
 		for (var perc_id in personDraw.used_ids)
 		{
@@ -9838,8 +10019,7 @@ class OffspringDraw extends LineDrawOps {
 			// If ids set by constructor, just perform a join
 			if (this.childNodeID !== null)
 			{
-				this.__joinIDs();		
-			
+				this.__joinIDs();
 			} else {
 				// First click, and nodes encapsulate second click
 				//
@@ -9853,7 +10033,6 @@ class OffspringDraw extends LineDrawOps {
 					this.__drawNodes();
 				}
 			}
-
 		}
 	}
 
@@ -9869,7 +10048,7 @@ class OffspringDraw extends LineDrawOps {
 			edge_map  = fam_gfx.edges,
 			node_map  = fam_gfx.nodes;
 
-		var nodeGroup = new Kinetic.Group({});
+		var nodeGroup = new Kinetic.Group();
 
 		for (var key in edge_map){
 			if (key[0]==='m')
@@ -9935,7 +10114,6 @@ class OffspringDraw extends LineDrawOps {
 		}
 		this._layer.add(nodeGroup);
 		this._layer.draw();
-		//main_layer.draw();
 	}
 
 
@@ -10775,6 +10953,7 @@ var init = {
 		genehunter: function(){
 			(new Genehunter()); // yeah "new" is required...
 								// gc does its job
+								// intergrate the latests changes
 		},
 
 		simwalk: function(){
@@ -10782,7 +10961,6 @@ var init = {
 		},
 
 		merlin: function(){
-			//utility.notify("TODO", "merlin");
 			(new Merlin());
 		}
 	},
@@ -10866,43 +11044,7 @@ function graphInitPos(start_x, start_y, enable_ped_edit = false){
 			nodes = fam_gfx.nodes,
 			edges = fam_gfx.edges;
 
-
-		// Load stored meta
-		familyMapOps.foreachperc(function(pid, fid, perp){
-
-			var n_perp = uniqueGraphOps.getNode(pid, fid);
-
-			// Restore meta
-			var posx = -1, 
-				ypos = -1;
-
-			if (perp.stored_meta !== undefined){
-				//console.log("using stored meta", perp_id, perp.stored_meta);
-				var meta = perp.stored_meta;
-
-				posx  = meta.x;
-				y_pos = meta.y;
-
-				perp.name = meta.name;
-
-				delete perp.stored_meta;
-
-				/* -- FIX, orphaned nodes are a problem.
-				if (perp.mother === 0 && perp.father === 0){
-	
-					n_perp.graphics = Graphics.Pedigree.addPerson(perp, fam_group, posx, y_pos);
-
-					if (enable_ped_edit){
-						n_perp.graphics.family = fam;
-					 	personDraw.addClickFunctions(n_perp.graphics);
-			 		}
-			 	}*/
-			}
-		});
-
-		//debugger
-
-
+ 
 		// Init Nodes, ordered by generation
 		GlobalLevelGrid.foreachgeneration(fam, function(indivs_in_gen){
 
@@ -11080,6 +11222,8 @@ function graphInitPos(start_x, start_y, enable_ped_edit = false){
 		fgr.group._boundsrect.hide();
 	});
 
+	autoScaleStage();
+
 	Resize.resizeCanvas();
 
 
@@ -11148,6 +11292,89 @@ function checkConsanginuity(fam_id, pers1_id, pers2_id)
 }
 
 
+
+function autoScaleStage(){
+	let min_x = Number.MAX_VALUE,
+		min_y = Number.MAX_VALUE,
+		max_x = Number.MIN_VALUE,
+		max_y = Number.MIN_VALUE;
+
+	// Nodes
+	uniqueGraphOps.foreachfam(function(fam, group)
+	{
+		let rect = group.group._boundsrect;
+
+		let minp = rect.getAbsolutePosition(),
+			widt = rect.getWidth(),
+			heit = rect.getHeight();
+
+		let maxp = {x: minp.x + widt, y: minp.y + heit};
+
+		if (minp.x < min_x){ min_x = minp.x };
+		if (maxp.x > max_x){ max_x = maxp.x };
+		if (minp.y < min_y){ min_y = minp.y };
+		if (maxp.y > max_y){ max_y = maxp.y };
+	});
+
+	// Title
+	uniqueGraphOps.foreachfam(function(fam, group)
+	{
+		let rect = group.group.fam_title_text;
+
+		let minp = rect.getAbsolutePosition(),
+			widt = rect.getWidth(),
+			heit = rect.getHeight();
+
+		let maxp = {x: minp.x + widt, y: minp.y + heit};
+
+		if (minp.x < min_x){ min_x = minp.x };
+		if (maxp.x > max_x){ max_x = maxp.x };
+		if (minp.y < min_y){ min_y = minp.y };
+		if (maxp.y > max_y){ max_y = maxp.y };
+	});
+
+
+	//Add padding
+	let margin = 0;
+	min_x -= margin; min_y -= margin; max_x += margin; max_y += margin;
+
+	// Established bounds for all, now:
+	//   1. Scale Stage.
+	//   2. Center Stage.
+	//
+	var x_scale = stage.getWidth() / (max_x - min_x),
+		y_scale = stage.getHeight()/ (max_y - min_y);
+
+	// Set zoom resolution to 0.1 sensitivity
+	x_scale = Math.floor(x_scale / 0.1).toFixed(0) * 0.1;
+	y_scale = Math.floor(y_scale / 0.1).toFixed(0) * 0.1;
+
+	console.log(x_scale,y_scale)
+
+	let small_scale = (x_scale < y_scale)?x_scale:y_scale;
+	if (small_scale > 1){ small_scale = 1;}
+	if (small_scale < 0.1){ small_scale = 0.1;} //absolute smallest req
+
+	kineticTween({
+		node:main_layer,
+		scaleX:small_scale,
+		scaleY:small_scale,
+	}).play();
+
+
+	// Translate all objects by offset
+	uniqueGraphOps.foreachfam(function(fam, group)
+	{
+		let rect = group.group;
+		kineticTween({
+			node: rect,
+			move: {x: -min_x, y: -min_y},
+		}).play();
+	});
+
+
+	stage.draw();
+}
 
 var HaploPedProps = {
 
@@ -13444,9 +13671,9 @@ var Test = {
     Benchmark : {
     	run() {
     		var inbr_array = [0.1],
-    			root_fndrs = [1,4],
-    			max_gendrs = [4,5,6,7],
-    			alle_sizes = [6000,7000,8000,9000];
+    			root_fndrs = [1],
+    			max_gendrs = [2],
+    			alle_sizes = [1e5,2e5,3e5,4e5,5e5,6e5,7e5,8e5,9e5,1e6];
 
     		var bmarkkey = "benchmark_runs";
 
@@ -13486,21 +13713,22 @@ var Test = {
 							console.log("attempting=",key, "[attempts,passes]=[", attempts, passes, "]");
 							run_map[key].attempts += 1
 
-							if (passes > 40){continue;}
+							if (passes > 20){continue;}
 							// Some tests just dont render... skip
-							if (attempts  > 40){continue;}
+							if (attempts  > 20){continue;}
 
 
 							try {
 								BenchMark.launch_with_props(root_founder, maxgen, allele_size, inbreed, false,
 
-									function endFunc(timetree, numpeople, numinbredcouples, timerender){
+									function endFunc(timetree, numpeople, numinbredcouples, timerender, numrecomb){
 							        	run_map[key].passes += 1
 										run_map[key].record.push({
 											time_tree: timetree,
 											people: numpeople,
 											inbredcouples: numinbredcouples,
-											time_render: timerender
+											time_render: timerender,
+											num_allele_recombs : numrecomb
 										});
 	                					console.log(key, "Rendered");
 
@@ -13821,8 +14049,12 @@ var BenchAllele  = {
 		return new_all;
 	},
 
+	__recombination_occurred : null,
+
 	performMeiosis: function(all1,all2)
 	{
+		BenchAllele.__recombination_occurred = null;
+
 		if ( all1.length !== all2.length){
 			console.error("Allele lengths do not match");
 			return 0;
@@ -13834,10 +14066,13 @@ var BenchAllele  = {
 
 		let index_split = randomIndex(allele_len);
 
+		BenchAllele.__recombination_occurred = false;
+
 		if (index_split < buff)             { return all1;}
 		if (index_split > allele_len - buff){ return all2;}
 
 		// Otherwise recombination
+		BenchAllele.__recombination_occurred = true;
 		index_split -= buff;
 		return all1.slice(0,index_split).concat(all2.slice(index_split,));
 	}
@@ -13870,6 +14105,7 @@ class BenchPerson  extends Person {
 
 
 		this.__temp_haplo_data = []
+		this.num_recombinations = 0;
 
 		if (this.mother !== null){
 		    this.simulateMeiosis();        // Non-Founder
@@ -13912,10 +14148,18 @@ class BenchPerson  extends Person {
 
 
 	simulateMeiosis(){
-		this.__temp_haplo_data.push( BenchAllele.performMeiosis(
-			this.mother.__temp_haplo_data[0], this.mother.__temp_haplo_data[1]) )
-		this.__temp_haplo_data.push( BenchAllele.performMeiosis(
-			this.father.__temp_haplo_data[0], this.father.__temp_haplo_data[1]) )
+		let all1 = BenchAllele.performMeiosis(this.mother.__temp_haplo_data[0], this.mother.__temp_haplo_data[1]);
+		let rec1 = BenchAllele.__recombination_occurred;
+
+		let all2 = BenchAllele.performMeiosis(this.father.__temp_haplo_data[0], this.father.__temp_haplo_data[1]);
+		let rec2 = BenchAllele.__recombination_occurred;
+
+		this.num_recombinations = 0;
+		if (rec1){ this.num_recombinations += 1;}
+		if (rec2){ this.num_recombinations += 1;}
+
+		this.__temp_haplo_data.push( all1 )
+		this.__temp_haplo_data.push( all2 )
 	}
 
 	generateFounderAlleles(){
@@ -14011,11 +14255,13 @@ class TreeGenerator {
 
         // To be filled
         this.num_people = 0;
+        this.num_recombinant_alleles = 0;
         this.inbred_couples = {};
 
         for (let i=0; i < num_roots; i++)
         {
             let root_indiv = new BenchPerson(1); // generation 0
+            this.num_people += 1;                // count each root
             this.germinate(root_indiv);    
         }
     }
@@ -14024,7 +14270,11 @@ class TreeGenerator {
         /*console.log(" [Results: num_people=" + this.num_people + "inbred_couples=" + Object.keys(this.inbred_couples).length + "] ");
         console.log("   Inbred_couples=", this.inbred_couples)
         console.log("   Generations", Object.keys(BenchPerson.generation_map).map( i => i+": "+Object.keys(BenchPerson.generation_map[i]).length ), BenchPerson.generation_map);*/
-        return { numpeople: this.num_people, numinbredcouples: Object.keys(this.inbred_couples).length };
+        return { 
+            numpeople: this.num_people, 
+            numinbredcouples: Object.keys(this.inbred_couples).length,
+            numallelerecombinations: this.num_recombinant_alleles
+        };
     }
 
 
@@ -14064,6 +14314,7 @@ class TreeGenerator {
             else {
                 // Mate is a new founder
                 mate = new BenchPerson(generation, mate_gender, null, null)
+                this.num_recombinant_alleles += mate.num_recombinations
                 //console.log("random mate", mate);
             }
 
@@ -14079,6 +14330,7 @@ class TreeGenerator {
                 for (let n=0; n < numOff; n++)
                 {
                     let child = new BenchPerson(generation + 1, 0, mother, father)
+                    this.num_recombinant_alleles += child.num_recombinations
                     perc.addChild(child);
                     mate.addChild(child);
 
@@ -14221,7 +14473,7 @@ var BenchMark = {
     },
 
     launch_with_props( rootfounders, maxgen, allelesize, inbreedchance, exportToFile,
-        endfunction = function(timetree, numpeople, numinbredcouples, timerender){},
+        endfunction = function(timetree, numpeople, numinbredcouples, timerender, numrecombs){},
         termfunction= function(){})
     {
         BenchStopwatch.terminate = function(text){
@@ -14239,7 +14491,7 @@ var BenchMark = {
         // Completed in FileFormat_superclass.js
         BenchStopwatch.start(
             function (rendertime) {
-                endfunction(treetime, metrics.numpeople, metrics.numinbredcouples, rendertime);
+                endfunction(treetime, metrics.numpeople, metrics.numinbredcouples, rendertime, metrics.numallelerecombinations);
                 utility.notify("Benchmark", 
                     metrics.numpeople+" individuals, " +
                     metrics.numinbredcouples + " inbred couples," +
@@ -14266,6 +14518,7 @@ var BenchMark = {
 }
 
 // Singleton
+
 function onWindowLoad(){
     
     (function browserDetection(){
@@ -14315,6 +14568,14 @@ function onWindowLoad(){
             console.log(browser_name, browser_vers)
             exit("<h1 style=\"color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;  \" >NOPE.</h1><h2 style=\"color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center;\" >Not This Browser.<br/>Not In A Million Years.<br/><br/>Try <a href=\"https://www.mozilla.org/en-US/firefox/new/\" style='color:DarkOrange; text-decoration:none;font-family:\"Papyrus\",fantasy;' >Firefox</a> or <a style='color:DodgerBlue;text-decoration:none;font-family:\"Arial\",sans-serif;' href=\"http://chromium.woolyss.com/\">Chromium.</a><br/><div style='font-size:12px;'>Chrome/Opera/Safari (if you must...)</div></h2>");
         }
+
+
+        // Haploblock spacing issue in Chromium:
+        if (browser_name === "Chrome"){
+            haploblock_spacers.person_offset_px += 0.19
+        }
+
+
     })();
 
     // Define all load modes here
