@@ -6515,7 +6515,8 @@ var haploblock_settings = {
 	space_pixels: 6,    // 1em for monospace 10
 	marker_offset: 1,
 	ht_offset: 7,
-	ht_2_ht: 1
+	ht_2_ht: 1,
+	font_family: "monospace"
 };
 //Do not edit this!
 var haploblock_buffers = {
@@ -10382,7 +10383,7 @@ var HaploBlock = {
 		}
 
 		SliderHandler.inputsLocked = true;
-		HaploBlock.redrawHaplos(true);
+		HaploBlock.redrawHaplos(true);		
 	},
 
 
@@ -10609,7 +10610,7 @@ var HaploBlockFormat = {
 		textprops : {
 			x: -38,
 			y: -nodeSize*2,
-			fontFamily: MarkerSlider._style.I_fontFamily,
+			fontFamily: haploblock_settings.font_family,
 			fontSize: 10,
 			fill: 'black'
 		},
@@ -12644,7 +12645,7 @@ function mapLinesAndNodes(line_map )
 			for (var sgroup in line_map[fid][g])
 			{
 //				console.log("SIB GROUP", sgroup)
-				// start_y += drop_amount;
+				//start_y += drop_amount;
 
 				var directline = line_map[fid][g][sgroup].directlines,
 					mateline = line_map[fid][g][sgroup].matelines;
@@ -12670,11 +12671,14 @@ function mapLinesAndNodes(line_map )
 					// Sib line from mateline
 					var dos = mateline[mline];
 
-					addLinePoint(
-						fid, fath_id+'_'+moth_id,
-						{to: sgroup, consang: false, drop:drop_amount, 
-						text: dos, lastgen:(g==line_map[fid].length-1)}
-					);
+					let isLastGen = (g==line_map[fid].length-1);
+					if (isLastGen){
+						addLinePoint(
+							fid, fath_id+'_'+moth_id,
+							{to: sgroup, consang: false, drop:drop_amount, 
+							text: dos, lastgen:isLastGen}
+						);
+					}
 				}
 
 				// Directline
@@ -13957,6 +13961,21 @@ var Test = {
 	}
     },
 
+    HaploMode : {
+	run(){
+	    userOpts.fancyGraphics = false;
+	    userOpts.setGraphics();
+	    MainButtonActions.loadHaploFromStorage();
+
+	    setTimeout(function(){
+		SelectionMode.init();
+		SelectionAction.selectAll();
+		HaploWindow.init();
+
+	    },1000);
+	}
+    },
+
     Homology : {
 	run(){
 	    userOpts.fancyGraphics = false;
@@ -14586,7 +14605,7 @@ function onWindowLoad(){
 
 
     //setTimeout(function(){
-    //    Test.Benchmark.start();
+    //    Test.HaploMode.run();
     //}, 1000);
 }
 
