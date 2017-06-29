@@ -8340,7 +8340,7 @@ class CustomTweenClass
 			var that = this;
 			setTimeout(function(){
 				that.finishCallback();
-			}, that.duration * 1000 || 800);
+			}, that.duration * 1000 || 300);
 		}
 	}
 }
