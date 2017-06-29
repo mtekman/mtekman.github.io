@@ -8306,6 +8306,7 @@ class CustomTweenClass
 		this.node = props.node;
 		this.finishCallback = props.onFinish || null;
 
+
 		for (var pr in props)
 		{
 			if (
@@ -8315,14 +8316,31 @@ class CustomTweenClass
 			){
 				continue;
 			}
+
+
+			if (pr === "x"){
+				this.node.setX(props[pr])
+				continue;
+			}
+			if (pr === "y"){
+				//console.log("setting", this.node.id, this.node.getY(), props.y)
+				this.node.setY(props[pr])
+				//console.log(" --> to ", this.node.getY())
+				continue;
+			}
+
+
 			this.node.attrs[pr] = props[pr];
-//			console.log(this.node, props[pr])
+
 		}
 	}
 
 	play(){
 		if (this.finishCallback !== null){
-			setTimeout(this.finishCallback, 100);
+			var that = this;
+			setTimeout(function(){
+				that.finishCallback();
+			}, that.duration * 1000 || 800);
 		}
 	}
 }
@@ -9033,6 +9051,7 @@ var HaploWindow = {
 
 				HaploWindow._group.add( HaploWindow._left );
 				HaploWindow._left.show();
+				// second lowest element
 				HaploWindow._left.moveToBottom();
 				HaploWindow._left.moveUp();
 
@@ -9218,18 +9237,25 @@ HaploWindow.alignTopSelection = function(group_nodes, group_lines)
 	if (HaploWindow.__aligntoggle){
 		group_lines.hide();
 
+		var render_counter = group_nodes.children.length - 1;
+
 		var y_line = HaploWindow.min_node_placement_y + DOS.initial_group_node_offset.y;
 
 		for (var g=0; g < group_nodes.children.length; g++){
 			var nd = group_nodes.children[g];
+			//console.log("moving", nd.id, "from", nd.getY(), y_line)
 
 			nd.old_ypos = nd.getY();
 
 			tween_array.push(
 				kineticTween({
 					node: nd,
-					x: nd.getX(),
-					y: y_line
+					y: y_line,
+					onFinish: function(){
+						if (render_counter-- === 0){
+							Resize.resizeCanvas()
+						}
+					}
 				})
 			);
 		}
@@ -9266,7 +9292,7 @@ HaploWindow.alignTopSelection = function(group_nodes, group_lines)
 		}
 	}
 	else {
-		group_lines.show();
+		//group_lines.show();
 
 		var render_counter = group_nodes.children.length - 1;
 		// preserved until no longer used
@@ -9282,6 +9308,7 @@ HaploWindow.alignTopSelection = function(group_nodes, group_lines)
 					onFinish: function(){
 						if (render_counter-- === 0){
 							group_lines.show();
+							Resize.resizeCanvas()
 						}
 					}
 				})
@@ -9320,8 +9347,6 @@ HaploWindow.alignTopSelection = function(group_nodes, group_lines)
 	{
 		tween_array[t++].play();
 	}
-
-	setTimeout(Resize.resizeCanvas, 800);
 
 	haplo_layer.draw();
 }
