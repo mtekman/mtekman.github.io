@@ -4001,8 +4001,13 @@ var userOpts = {
 			var res = false
 
 			// default enable everything
-			if (value === null){res = true;}
-			res = (value === "true");
+			if (value === null){
+				res = true;
+			}
+			else{
+				res = (value === "true");				
+			}
+			
 			
 			// Set
 			userOpts[key] = res;
