@@ -4029,7 +4029,8 @@ var userOpts = {
 			BackgroundVidMain.removeVid();
 		}
 
-		if (uniqueGraphOps.haplo_scroll !== null){
+		if (HaploWindow._bottom !== null){
+			HaploBlockFormat.hasGPData( MarkerData.hasGPData );
 			HaploBlock.redrawHaplos();
 		}
 	}
@@ -6528,7 +6529,7 @@ var haploblock_settings = {
 	marker_offset: 1,
 	ht_offset: 7,
 	ht_2_ht: 1,
-	font_family: "monospace"
+	font_family: "Roboto Mono"
 };
 //Do not edit this!
 var haploblock_buffers = {
@@ -7105,8 +7106,8 @@ var familyMapOps = {
 var uniqueGraphOps = {
 
 	_map : {}, // fam_id --> Holds node and edge data, including pointers to graphics
-	haplo_scroll : null,
-	haplo_area : null,
+	/*haplo_scroll : null,
+	haplo_area : null,*/
 
 	clear: function(){
 		uniqueGraphOps._map = {};
@@ -8886,13 +8887,17 @@ var HaploWindow = {
 
 	_compensateOffset : function()
 	{
-		let stage_pos = stage.getPosition();
+		let stage_pos = stage.getPosition(),
+			left_x  = HaploWindow._left.getX() - 5;
 
-		HaploWindow._group.setX( -stage_pos.x );
+
+		HaploWindow._group.setX( -stage_pos.x - left_x);
 		HaploWindow._group.setY( -stage_pos.y );
 
 		HaploWindow._background.setX( -stage_pos.x );
 		HaploWindow._background.setY( -stage_pos.y );
+
+		//HaploWindow._exit.setX(20 - left_x);
 	},
 
 
@@ -8955,7 +8960,7 @@ var HaploWindow = {
 
 		// Exit button
 		HaploWindow._exit = addExitButton(
-			{x: 20,
+			{x: 20 + HaploWindow._left.getX(),
 			 y: 20},
 			 HaploWindow.destroy,
 			 2);
@@ -9055,8 +9060,8 @@ var HaploWindow = {
 					document.addEventListener("mouseup", mouseUp, false);
 				});
 
-				uniqueGraphOps.haplo_scroll = HaploWindow._bottom;
-				uniqueGraphOps.haplo_area = scroll_area__;
+				HaploWindow._scroll_area = scroll_area__;
+
 
 				HaploWindow._bottom.add( scroll_area__ );
 
@@ -9075,13 +9080,16 @@ var HaploWindow = {
 
 				MarkerSlider.makeVisible(true)
 				Resize.resizeCanvas();
+				setTimeout(function(){
+					haplo_layer.draw()
+				}, 100);
 			}
 		}).play();
 	},
 
 	__hideBottom: function(finishfunc = 0){
-		if (uniqueGraphOps.haplo_area !== null){
-			uniqueGraphOps.haplo_area.hide();
+		if (HaploWindow._scroll_area !== null){
+			HaploWindow._scroll_area.hide();
 		}
 
 		if (HaploWindow._bottom === null){
@@ -9107,6 +9115,7 @@ var HaploWindow = {
 				if (finishfunc!==0){
 					finishfunc();
 				}
+				haplo_layer.draw()
 			}
 		}).play();
 	}
@@ -10370,8 +10379,7 @@ var AssignHGroups = {
 
 
 
-
-var htext = null; // DEBUG
+//var htext = null; // DEBUG
 
 var HaploBlock = {
 
@@ -10431,8 +10439,8 @@ var HaploBlock = {
 			Resize.resizeCanvas();
 		}
 
-		var scroll_rect = uniqueGraphOps.haplo_scroll,
-			scroll_area = uniqueGraphOps.haplo_area;
+		var scroll_rect = HaploWindow._bottom,
+			scroll_area = HaploWindow._scroll_area;
 
 		var diff_y = scroll_rect.getAbsolutePosition().y - scroll_area.getAbsolutePosition().y,
 			index_start_delta = Math.floor( diff_y / HAP_VERT_SPA );
@@ -10550,7 +10558,7 @@ var HaploBlock = {
 		HaploBlockFormat.format.textprops.text = total_text;
 		var texter = new Kinetic.Text(HaploBlockFormat.format.textprops);
 
-		htext = texter;
+		//htext = texter;
 		grp.add(texter);
 		return grp;
 	},
@@ -10634,7 +10642,7 @@ var HaploBlock = {
 var HaploBlockFormat = {
 
 	hasGPData(show){
-		HaploBlockFormat.format.textprops.x = show?-86:-38;
+		HaploBlockFormat.format.textprops.x = show?-85:-37;
 		HaploWindow._group.setX(show?45:0);
 
 		HaploWindow._left.setX(show?-40:10);
@@ -14625,13 +14633,6 @@ function onWindowLoad(){
             exit("<h1 style=\"color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;  \" >NOPE.</h1><h2 style=\"color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center;\" >Not This Browser.<br/>Not In A Million Years.<br/><br/>Try <a href=\"https://www.mozilla.org/en-US/firefox/new/\" style='color:DarkOrange; text-decoration:none;font-family:\"Papyrus\",fantasy;' >Firefox</a> or <a style='color:DodgerBlue;text-decoration:none;font-family:\"Arial\",sans-serif;' href=\"http://chromium.woolyss.com/\">Chromium.</a><br/><div style='font-size:12px;'>Chrome/Opera/Safari (if you must...)</div></h2>");
         }
 
-
-        // Haploblock spacing issue in Chromium:
-        if (browser_name === "Chrome"){
-            haploblock_spacers.person_offset_px += 0.19
-        }
-
-
     })();
 
     // Define all load modes here
@@ -14641,9 +14642,9 @@ function onWindowLoad(){
     Settings.init();
 
 
-    //setTimeout(function(){
-    //    Test.HaploMode.run();
-    //}, 1000);
+    setTimeout(function(){
+        Test.HaploMode.run();
+    }, 1000);
 }
 
 onWindowLoad(); // singleton in a singleton is frowned upon
