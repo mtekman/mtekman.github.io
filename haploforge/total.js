@@ -19,116 +19,6 @@
 
 
 document.write('\
-        <div id="selection_tools" class="input_props" >\
-          <h3 id="selection_title" ></h3>\
-          <table id="selection_table" >\
-          </table>\
-        </div>\
-\
-        <!-- Save Dialogs -->\
-        <div id="save_and_close" class="input_props" >\
-          <h3 id="save_and_close_title"> General Opts. </h3>\
-          <table id="save_and_close_table">\
-          </table>\
-        </div>\
-');
-
-document.write('\
-\
-  <div id="maincircle">\
-\
-    <input id="haploupload" type="button" \
-                 onclick="MainButtonActions.fileUpload()" />\
-\
-    <input id="haploresume" type="button"\
-                 onclick="MainButtonActions.loadHaploFromStorage()"  />\
-\
-    <input id="pedmodebutton" type="button"\
-                 onclick="MainButtonActions.createNewPed()" />\
-\
-    <input id="pedresume" type="button"\
-                 onclick="MainButtonActions.loadPedFromStorage()" />\
-\
-    <ul class="nodots">\
-      <li class="smallspace">\
-          <div class="cornerspace lower">\
-              <a href="https://github.com/mtekman/haploforge" >source code</a>\
-              <br />\
-              <a href="test/supplemental_test_data.7z" id="test_assets" >test assets</a>\
-          </div>\
-          <h1>HaploForge</h1>\
-          <h2 class="smallspace">Extensive Haplotype Resolution and Pedigree Creation Tool</h2>\
-          <div class="cornerspace upper">\
-            <a onclick="BenchMark.launch_display()" >benchmarking</a>\
-          </div>\
-      </li>\
-      <li>\
-        <label id="haploupload_label" for="haploupload">Visualize New Haplotypes</label>\
-        <label id="haploresume_label" for="haploresume">Resume Previous Analysis</label>\
-      </li>\
-      <li>\
-        <hr class="style15">\
-      </li>\
-      <li>\
-        <label id="pedmodebutton" for="pedmodebutton">Create New Pedigree</label>\
-        <label id="pedresume_label" for="pedresume">Resume Pedigree</label>\
-      </li>\
-    </ul>\
-    <img id="settings_wheel" src="public_assets/images/settings_wheel.png" ></img>\
-  </div>\
-');
-
-document.write('\
-\
-<div id="homology_buttons" class="input_props" >\
-<!--            <input type=button id="hom_exit" value="X" />-->\
-\
-            <table>\
-                <tr>\
-                    <td colspan="2" >\
-                        <select id="plot_type">\
-                            <option selected value="HOM" >Homozygous</option>\
-                            <option value="HET" >Heterozygous</option>\
-                            <option value="CHET" >Compound Het.</option>\
-                        </select>\
-                    </td>\
-                </tr>\
-\
-                <tr>\
-                    <td>\
-                        <label for="zygous_min_stretch">Min Exten:</label>\
-                    </td>\
-                    <td>\
-                        <input type=number id="zygous_min_stretch" value="1" min=1 />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td>\
-                        <label for="zygous_min_score"  >Min Score:</label>\
-                    </td>\
-                    <td>\
-                        <input type=number id="zygous_min_score" value="1" min=1 />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td colspan="2">\
-                        <input type=button id="homology_redraw" value="Update" />\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td colspan="2">\
-                        <input type=button id="homology_export" value="Export Data" />\
-                    </td>\
-                </tr>\
-            </table>\
-        </div>\
-');
-
-
-document.write('\
-<div id="settings_box"></div>\
-')
-document.write('\
         <div id="useropts">\
           <label><input type="checkbox" id="user_fancy" onchange="userOpts.update(\'fancyGraphics\',this.checked); userOpts.setGraphics(this.checked);" />Adv. Graphics</label><br/>\
           <!--<label><input type="checkbox" id="user_tooltips" onchange="userOpts.update(\'showTooltips\', this.checked);" />Tooltips</label>-->\
@@ -249,17 +139,48 @@ document.write('\
 ');
 
 document.write('\
-<div id="index_class" class="input_props" >\
-           <span class="not-numbers">\
-                <label for="marker_min">From:</label>\
-                <input id="marker_min" list="marker_list_min" />\
-                <label for="marker_max">To:</label>\
-                <input id="marker_max" list="marker_list_max" />\
-                <datalist id="marker_list_min" ></datalist>\
-                <datalist id="marker_list_max" ></datalist>\
-                <input type=button value="Go" id="index_submit" />\
-            </span>\
-        </div>\
+\
+  <div id="maincircle">\
+\
+    <input id="haploupload" type="button" \
+                 onclick="MainButtonActions.fileUpload()" />\
+\
+    <input id="haploresume" type="button"\
+                 onclick="MainButtonActions.loadHaploFromStorage()"  />\
+\
+    <input id="pedmodebutton" type="button"\
+                 onclick="MainButtonActions.createNewPed()" />\
+\
+    <input id="pedresume" type="button"\
+                 onclick="MainButtonActions.loadPedFromStorage()" />\
+\
+    <ul class="nodots">\
+      <li class="smallspace">\
+          <div class="cornerspace lower">\
+              <a href="https://github.com/mtekman/haploforge" >source code</a>\
+              <br />\
+              <a href="test/supplemental_test_data.7z" id="test_assets" >test assets</a>\
+          </div>\
+          <h1>HaploForge</h1>\
+          <h2 class="smallspace">Extensive Haplotype Resolution and Pedigree Creation Tool</h2>\
+          <div class="cornerspace upper">\
+            <a onclick="BenchMark.launch_display()" >benchmarking</a>\
+          </div>\
+      </li>\
+      <li>\
+        <label id="haploupload_label" for="haploupload">Visualize New Haplotypes</label>\
+        <label id="haploresume_label" for="haploresume">Resume Previous Analysis</label>\
+      </li>\
+      <li>\
+        <hr class="style15">\
+      </li>\
+      <li>\
+        <label id="pedmodebutton" for="pedmodebutton">Create New Pedigree</label>\
+        <label id="pedresume_label" for="pedresume">Resume Pedigree</label>\
+      </li>\
+    </ul>\
+    <img id="settings_wheel" src="public_assets/images/settings_wheel.png" ></img>\
+  </div>\
 ');
 
 document.write('\
@@ -339,6 +260,24 @@ document.write('\
         </div>\
 ');
 
+
+document.write('\
+<div id="settings_box"></div>\
+')
+document.write('\
+<div id="index_class" class="input_props" >\
+           <span class="not-numbers">\
+                <label for="marker_min">From:</label>\
+                <input id="marker_min" list="marker_list_min" />\
+                <label for="marker_max">To:</label>\
+                <input id="marker_max" list="marker_list_max" />\
+                <datalist id="marker_list_min" ></datalist>\
+                <datalist id="marker_list_max" ></datalist>\
+                <input type=button value="Go" id="index_submit" />\
+            </span>\
+        </div>\
+');
+
 document.write('\
       <div id="status_props" class="status">\
           <div class="reflect" id="status_head">Header</div>\
@@ -401,6 +340,67 @@ document.write('\
                <td><input id="bench_export_haplo" type="checkbox" /></td>\
              </tr>\
            </table>\
+        </div>\
+');
+
+document.write('\
+\
+<div id="homology_buttons" class="input_props" >\
+<!--            <input type=button id="hom_exit" value="X" />-->\
+\
+            <table>\
+                <tr>\
+                    <td colspan="2" >\
+                        <select id="plot_type">\
+                            <option selected value="HOM" >Homozygous</option>\
+                            <option value="HET" >Heterozygous</option>\
+                            <option value="CHET" >Compound Het.</option>\
+                        </select>\
+                    </td>\
+                </tr>\
+\
+                <tr>\
+                    <td>\
+                        <label for="zygous_min_stretch">Min Exten:</label>\
+                    </td>\
+                    <td>\
+                        <input type=number id="zygous_min_stretch" value="1" min=1 />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td>\
+                        <label for="zygous_min_score"  >Min Score:</label>\
+                    </td>\
+                    <td>\
+                        <input type=number id="zygous_min_score" value="1" min=1 />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td colspan="2">\
+                        <input type=button id="homology_redraw" value="Update" />\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td colspan="2">\
+                        <input type=button id="homology_export" value="Export Data" />\
+                    </td>\
+                </tr>\
+            </table>\
+        </div>\
+');
+
+document.write('\
+        <div id="selection_tools" class="input_props" >\
+          <h3 id="selection_title" ></h3>\
+          <table id="selection_table" >\
+          </table>\
+        </div>\
+\
+        <!-- Save Dialogs -->\
+        <div id="save_and_close" class="input_props" >\
+          <h3 id="save_and_close_title"> General Opts. </h3>\
+          <table id="save_and_close_table">\
+          </table>\
         </div>\
 ');
 
@@ -8841,6 +8841,7 @@ var HaploWindow = {
 					// main_layer.draw();
 					// alert("here3");
 
+
 					(kineticTween({
 						node: perc_gfx,
 						x: old_pos.x,
@@ -12591,15 +12592,22 @@ var DOS = {
 			gfx.listening( false );
 			
 			DOS.haplo_group_nodes.add(gfx);
+
+			let mscale = main_layer.getScale(),
+				npos = gfx.main_layer_group.getAbsolutePosition()
+
 			gfx.setPosition(
-				{x: gfx.main_layer_group.getX() + gfx.main_layer_pos.x,
-				 y: gfx.main_layer_group.getY() + gfx.main_layer_pos.y}
+				{x: (npos.x + gfx.main_layer_pos.x)*mscale.x,
+				 y: (npos.y + gfx.main_layer_pos.y)*mscale.y}
 			);
+			gfx.setScale(mscale)
 
 			var tween = kineticTween({
 				node: gfx,
 				x: start_x + DOS.initial_group_node_offset.x,
 				y: y_pos + DOS.initial_group_node_offset.y,
+				scaleX: 1,
+				scaleY: 1,
 				onFinish: function(){
 					if (render_counter-- === 0){
 
