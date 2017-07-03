@@ -188,7 +188,7 @@ document.write('\
       <!-- Family Props -->\
         <div id="family_props" class="input_props" >\
           <div class="messages">\
-             <h3 id="message_head" >Family</h3>\
+             <h3>Family</h3>\
              <input class="toprightclose" id="family_submit" type="button" value="✓" />\
           </div>\
 \
@@ -208,7 +208,7 @@ document.write('\
         <!-- Person Props http://jsfiddle.net/cysCx/258/ -->\
         <div id="person_props" class="input_props">\
           <div class="messages">\
-            <h3 id="message_head">Person</h3>\
+            <h3>Person</h3>\
             <input class="toprightclose" id="pers_submit" type="button" value="✓" />\
             <input class="toprightclose" id="pers_delete" type="button" value="✘" />\
           </div>\
@@ -309,7 +309,7 @@ document.write('\
         <!-- Benchmark Props -->\
         <div id="bench_props" class="input_props" style="display:none" >\
           <div class="messages">\
-             <h3 id="message_head" >Benchmarking</h3>\
+             <h3 >Benchmarking</h3>\
              <input class="toprightclose" id="bench_close" type="button" value="✘" />\
              <input class="toprightclose" id="bench_submit" type="button" value="✓" />\
           </div>\
