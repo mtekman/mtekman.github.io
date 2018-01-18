@@ -19,6 +19,222 @@
 
 
 document.write('\
+        <div id="selection_tools" class="input_props" >\
+          <h3 id="selection_title" ></h3>\
+          <table id="selection_table" >\
+          </table>\
+        </div>\
+\
+        <!-- Save Dialogs -->\
+        <div id="save_and_close" class="input_props" >\
+          <h3 id="save_and_close_title"> General Opts. </h3>\
+          <table id="save_and_close_table">\
+          </table>\
+        </div>\
+');
+
+document.write('\
+      <div id="status_props" class="status">\
+          <div class="reflect" id="status_head">Header</div>\
+          <div id="status_text">Details go here</div>\
+      </div>\
+\
+\
+\
+        <!-- Message Props -->\
+        <div id="message_props" class="input_props" >\
+          <div class="bg" ></div>\
+          <div class="messages">\
+              <h3 id="message_head" >Header</h3>\
+              <input class="toprightclose" id="message_exit" type="button" value="✘" />\
+              <p id="message_text" >Stuff we can talk about</p>\
+              <div id="message_inputrow" >\
+                <input type="text" \
+                id="message_input" />\
+                <input type="button" \
+                id="message_submit" />\
+              </div>\
+              <div id="message_buttonsrow" >\
+                <input id="message_yes" type="button" value="Yes" />\
+                <input id="message_no" type="button" value="No" />\
+              </div>\
+          </div>\
+        </div>\
+\
+        <!-- Benchmark Props -->\
+        <div id="bench_props" class="input_props" style="display:none" >\
+          <div class="messages">\
+             <h3 >Benchmarking</h3>\
+             <input class="toprightclose" id="bench_close" type="button" value="✘" />\
+             <input class="toprightclose" id="bench_submit" type="button" value="✓" />\
+          </div>\
+\
+          <table class="bench_input">\
+             <tr >\
+               <td>Founder Couples:</td>\
+               <td>\
+                <input id="bench_root_founder" type="number" min=1 value=1 />\
+                <div class="tooltip_box" >?</div>\
+                <div class="tooltip_text" ><p>Founder couples &#62;1</p>If the ancestors of seperate founder couples do not mix, a single pedigree cannot be generated.<br/>Either set the number of root founder couples to 1, or alternately increase the number of generations and the inbreeding probability.</div>\
+               </td>\
+             </tr>\
+             <tr>\
+               <td>Max Generations:</td>\
+               <td><input id="bench_max_gen" type="number" min=2 max=100 value=4 /></td>\
+             </tr>\
+             <tr>\
+               <td>Size of Alleles:</td>\
+               <td><input id="bench_allele_size" type="number" min=16 value=16 /></td>\
+             </tr>\
+             <tr>\
+               <td>Inbreeding Prob:</td>\
+               <td><input id="bench_inbreed_prob" type="number" value=0.1 min=0.1 step=0.1  max=1 /></td>\
+             </tr>\
+             <tr>\
+               <td>Export as haplo file?</td>\
+               <td><input id="bench_export_haplo" type="checkbox" /></td>\
+             </tr>\
+           </table>\
+        </div>\
+');
+
+document.write('\
+\
+      <!-- Family Props -->\
+        <div id="family_props" class="input_props" >\
+          <div class="messages">\
+             <h3>Family</h3>\
+             <input class="toprightclose" id="family_submit" type="button" value="✓" />\
+          </div>\
+\
+          <table>\
+             <tr>\
+               <td>Fam ID: </td>\
+               <td><input id="family_id" type="number" /></td>\
+             </tr>\
+             <tr>\
+               <td>Surname:</td>\
+               <td><input id="family_name" type="text" /></td>\
+             </tr>\
+           </table>\
+        </div>\
+\
+\
+        <!-- Person Props http://jsfiddle.net/cysCx/258/ -->\
+        <div id="person_props" class="input_props">\
+          <div class="messages">\
+            <h3>Person</h3>\
+            <input class="toprightclose" id="pers_submit" type="button" value="✓" />\
+            <input class="toprightclose" id="pers_delete" type="button" value="✘" />\
+          </div>\
+\
+          <table>\
+            <tr>\
+              <td>ID: </td>\
+              <td>\
+                <input id="pers_id" type="number" />\
+              </td>\
+            </tr>\
+\
+            <tr>\
+              <td>Name:</td>\
+              <td>\
+                <input id="pers_name" type="text" /> </td>\
+            </tr>\
+\
+            <tr>\
+              <td colspan="2">\
+                <input type="checkbox" id="pers_gender_unknown" class="deselector" />\
+               <div>\
+                <div style="display:inline;z-index:130">\
+                  <input type="checkbox" id="pers_gender" name="pers_gender" class="switch" />\
+                  <label for="pers_gender">\
+                    <span class="first">Male</span>\
+                    <span class="second">Female</span>\
+                  </label>\
+                </div>\
+                </div>\
+              </td>\
+            </tr>\
+\
+            <tr>\
+              <td colspan=2>\
+                <input type="checkbox" id="pers_affect_unknown" class="deselector" />\
+                <div>\
+                <div style="display:inline;">\
+                  <input type="checkbox" id="pers_affect" name="pers_affect" class="switch" />\
+                  <label for="pers_affect">\
+                    <span class="first">Unaffected</span>\
+                    <span class="second">Affected</span>\
+                  </label>\
+                </div>\
+                </div>\
+              </td>\
+            </tr>\
+          </table>\
+        </div>\
+');
+
+document.write('\
+\
+  <div id="maincircle">\
+\
+    <input id="haploupload" type="button" \
+                 onclick="MainButtonActions.fileUpload()" />\
+\
+    <input id="haploresume" type="button"\
+                 onclick="MainButtonActions.loadHaploFromStorage()"  />\
+\
+    <input id="pedmodebutton" type="button"\
+                 onclick="MainButtonActions.createNewPed()" />\
+\
+    <input id="pedresume" type="button"\
+                 onclick="MainButtonActions.loadPedFromStorage()" />\
+\
+    <ul class="nodots">\
+      <li class="smallspace">\
+          <div class="cornerspace lower">\
+              <a href="https://github.com/mtekman/haploforge" >source code</a>\
+              <br />\
+              <a href="test/supplemental_test_data.7z" id="test_assets" >test assets</a>\
+          </div>\
+          <h1>HaploForge</h1>\
+          <h2 class="smallspace">Extensive Haplotype Resolution and Pedigree Creation Tool</h2>\
+          <div class="cornerspace upper">\
+            <a onclick="BenchMark.launch_display()" >benchmarking</a>\
+          </div>\
+      </li>\
+      <li>\
+        <label id="haploupload_label" for="haploupload">Visualize New Haplotypes</label>\
+        <label id="haploresume_label" for="haploresume">Resume Previous Analysis</label>\
+      </li>\
+      <li>\
+        <hr class="style15">\
+      </li>\
+      <li>\
+        <label id="pedmodebutton" for="pedmodebutton">Create New Pedigree</label>\
+        <label id="pedresume_label" for="pedresume">Resume Pedigree</label>\
+      </li>\
+    </ul>\
+    <img id="settings_wheel" src="public_assets/images/settings_wheel.png" ></img>\
+  </div>\
+');
+
+document.write('\
+<div id="index_class" class="input_props" >\
+           <span class="not-numbers">\
+                <label for="marker_min">From:</label>\
+                <input id="marker_min" list="marker_list_min" />\
+                <label for="marker_max">To:</label>\
+                <input id="marker_max" list="marker_list_max" />\
+                <datalist id="marker_list_min" ></datalist>\
+                <datalist id="marker_list_max" ></datalist>\
+                <input type=button value="Go" id="index_submit" />\
+            </span>\
+        </div>\
+');
+
+document.write('\
         <div id="useropts">\
           <label><input type="checkbox" id="user_fancy" onchange="userOpts.update(\'fancyGraphics\',this.checked); userOpts.setGraphics(this.checked);" />Adv. Graphics</label><br/>\
           <!--<label><input type="checkbox" id="user_tooltips" onchange="userOpts.update(\'showTooltips\', this.checked);" />Tooltips</label>-->\
@@ -138,211 +354,10 @@ document.write('\
 </div>\
 ');
 
-document.write('\
-\
-  <div id="maincircle">\
-\
-    <input id="haploupload" type="button" \
-                 onclick="MainButtonActions.fileUpload()" />\
-\
-    <input id="haploresume" type="button"\
-                 onclick="MainButtonActions.loadHaploFromStorage()"  />\
-\
-    <input id="pedmodebutton" type="button"\
-                 onclick="MainButtonActions.createNewPed()" />\
-\
-    <input id="pedresume" type="button"\
-                 onclick="MainButtonActions.loadPedFromStorage()" />\
-\
-    <ul class="nodots">\
-      <li class="smallspace">\
-          <div class="cornerspace lower">\
-              <a href="https://github.com/mtekman/haploforge" >source code</a>\
-              <br />\
-              <a href="test/supplemental_test_data.7z" id="test_assets" >test assets</a>\
-          </div>\
-          <h1>HaploForge</h1>\
-          <h2 class="smallspace">Extensive Haplotype Resolution and Pedigree Creation Tool</h2>\
-          <div class="cornerspace upper">\
-            <a onclick="BenchMark.launch_display()" >benchmarking</a>\
-          </div>\
-      </li>\
-      <li>\
-        <label id="haploupload_label" for="haploupload">Visualize New Haplotypes</label>\
-        <label id="haploresume_label" for="haploresume">Resume Previous Analysis</label>\
-      </li>\
-      <li>\
-        <hr class="style15">\
-      </li>\
-      <li>\
-        <label id="pedmodebutton" for="pedmodebutton">Create New Pedigree</label>\
-        <label id="pedresume_label" for="pedresume">Resume Pedigree</label>\
-      </li>\
-    </ul>\
-    <img id="settings_wheel" src="public_assets/images/settings_wheel.png" ></img>\
-  </div>\
-');
-
-document.write('\
-\
-      <!-- Family Props -->\
-        <div id="family_props" class="input_props" >\
-          <div class="messages">\
-             <h3>Family</h3>\
-             <input class="toprightclose" id="family_submit" type="button" value="✓" />\
-          </div>\
-\
-          <table>\
-             <tr>\
-               <td>Fam ID: </td>\
-               <td><input id="family_id" type="number" /></td>\
-             </tr>\
-             <tr>\
-               <td>Surname:</td>\
-               <td><input id="family_name" type="text" /></td>\
-             </tr>\
-           </table>\
-        </div>\
-\
-\
-        <!-- Person Props http://jsfiddle.net/cysCx/258/ -->\
-        <div id="person_props" class="input_props">\
-          <div class="messages">\
-            <h3>Person</h3>\
-            <input class="toprightclose" id="pers_submit" type="button" value="✓" />\
-            <input class="toprightclose" id="pers_delete" type="button" value="✘" />\
-          </div>\
-\
-          <table>\
-            <tr>\
-              <td>ID: </td>\
-              <td>\
-                <input id="pers_id" type="number" />\
-              </td>\
-            </tr>\
-\
-            <tr>\
-              <td>Name:</td>\
-              <td>\
-                <input id="pers_name" type="text" /> </td>\
-            </tr>\
-\
-            <tr>\
-              <td colspan="2">\
-                <input type="checkbox" id="pers_gender_unknown" class="deselector" />\
-               <div>\
-                <div style="display:inline;z-index:130">\
-                  <input type="checkbox" id="pers_gender" name="pers_gender" class="switch" />\
-                  <label for="pers_gender">\
-                    <span class="first">Male</span>\
-                    <span class="second">Female</span>\
-                  </label>\
-                </div>\
-                </div>\
-              </td>\
-            </tr>\
-\
-            <tr>\
-              <td colspan=2>\
-                <input type="checkbox" id="pers_affect_unknown" class="deselector" />\
-                <div>\
-                <div style="display:inline;">\
-                  <input type="checkbox" id="pers_affect" name="pers_affect" class="switch" />\
-                  <label for="pers_affect">\
-                    <span class="first">Unaffected</span>\
-                    <span class="second">Affected</span>\
-                  </label>\
-                </div>\
-                </div>\
-              </td>\
-            </tr>\
-          </table>\
-        </div>\
-');
-
 
 document.write('\
 <div id="settings_box"></div>\
 ')
-document.write('\
-<div id="index_class" class="input_props" >\
-           <span class="not-numbers">\
-                <label for="marker_min">From:</label>\
-                <input id="marker_min" list="marker_list_min" />\
-                <label for="marker_max">To:</label>\
-                <input id="marker_max" list="marker_list_max" />\
-                <datalist id="marker_list_min" ></datalist>\
-                <datalist id="marker_list_max" ></datalist>\
-                <input type=button value="Go" id="index_submit" />\
-            </span>\
-        </div>\
-');
-
-document.write('\
-      <div id="status_props" class="status">\
-          <div class="reflect" id="status_head">Header</div>\
-          <div id="status_text">Details go here</div>\
-      </div>\
-\
-\
-\
-        <!-- Message Props -->\
-        <div id="message_props" class="input_props" >\
-          <div class="bg" ></div>\
-          <div class="messages">\
-              <h3 id="message_head" >Header</h3>\
-              <input class="toprightclose" id="message_exit" type="button" value="✘" />\
-              <p id="message_text" >Stuff we can talk about</p>\
-              <div id="message_inputrow" >\
-                <input type="text" \
-                id="message_input" />\
-                <input type="button" \
-                id="message_submit" />\
-              </div>\
-              <div id="message_buttonsrow" >\
-                <input id="message_yes" type="button" value="Yes" />\
-                <input id="message_no" type="button" value="No" />\
-              </div>\
-          </div>\
-        </div>\
-\
-        <!-- Benchmark Props -->\
-        <div id="bench_props" class="input_props" style="display:none" >\
-          <div class="messages">\
-             <h3 >Benchmarking</h3>\
-             <input class="toprightclose" id="bench_close" type="button" value="✘" />\
-             <input class="toprightclose" id="bench_submit" type="button" value="✓" />\
-          </div>\
-\
-          <table class="bench_input">\
-             <tr >\
-               <td>Founder Couples:</td>\
-               <td>\
-                <input id="bench_root_founder" type="number" min=1 value=1 />\
-                <div class="tooltip_box" >?</div>\
-                <div class="tooltip_text" ><p>Founder couples &#62;1</p>If the ancestors of seperate founder couples do not mix, a single pedigree cannot be generated.<br/>Either set the number of root founder couples to 1, or alternately increase the number of generations and the inbreeding probability.</div>\
-               </td>\
-             </tr>\
-             <tr>\
-               <td>Max Generations:</td>\
-               <td><input id="bench_max_gen" type="number" min=2 max=100 value=4 /></td>\
-             </tr>\
-             <tr>\
-               <td>Size of Alleles:</td>\
-               <td><input id="bench_allele_size" type="number" min=16 value=16 /></td>\
-             </tr>\
-             <tr>\
-               <td>Inbreeding Prob:</td>\
-               <td><input id="bench_inbreed_prob" type="number" value=0.1 min=0.1 step=0.1  max=1 /></td>\
-             </tr>\
-             <tr>\
-               <td>Export as haplo file?</td>\
-               <td><input id="bench_export_haplo" type="checkbox" /></td>\
-             </tr>\
-           </table>\
-        </div>\
-');
-
 document.write('\
 \
 <div id="homology_buttons" class="input_props" >\
@@ -386,21 +401,6 @@ document.write('\
                     </td>\
                 </tr>\
             </table>\
-        </div>\
-');
-
-document.write('\
-        <div id="selection_tools" class="input_props" >\
-          <h3 id="selection_title" ></h3>\
-          <table id="selection_table" >\
-          </table>\
-        </div>\
-\
-        <!-- Save Dialogs -->\
-        <div id="save_and_close" class="input_props" >\
-          <h3 id="save_and_close_title"> General Opts. </h3>\
-          <table id="save_and_close_table">\
-          </table>\
         </div>\
 ');
 
@@ -14592,7 +14592,7 @@ var BenchMark = {
 // Singleton
 
 function onWindowLoad(){
-    
+
     (function browserDetection(){
         //
         //Quick browser detector
@@ -14636,9 +14636,42 @@ function onWindowLoad(){
         if (!(
                (browser_name === "Chrome" && browser_vers >= 43)
             || (browser_name === "Firefox" && browser_vers >= 38)
+            || (browser_name === "Safari" && browser_vers >= 9)
            )) {
             console.log(browser_name, browser_vers)
-            exit("<h1 style=\"color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;  \" >NOPE.</h1><h2 style=\"color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center;\" >Not This Browser.<br/>Not In A Million Years.<br/><br/>Try <a href=\"https://www.mozilla.org/en-US/firefox/new/\" style='color:DarkOrange; text-decoration:none;font-family:\"Papyrus\",fantasy;' >Firefox</a> or <a style='color:DodgerBlue;text-decoration:none;font-family:\"Arial\",sans-serif;' href=\"http://chromium.woolyss.com/\">Chromium.</a><br/><div style='font-size:12px;'>Chrome/Opera/Safari (if you must...)</div></h2>");
+            let text= `
+<h1 style="color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;" >
+    NOPE.
+</h1>
+<h2 style="color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center;" >
+    Not This Browser.<br/>
+    Not In A Million Years.<br/><br/>
+    Try
+    <a style='color:DarkOrange;text-decoration:none;font-family:"Arial",sans-serif;' href="https://www.mozilla.org/en-US/firefox/new/" >
+        Firefox
+    </a>
+    or
+    <a style='color:DodgerBlue;text-decoration:none;font-family:"Arial",sans-serif;' href="http://chromium.woolyss.com/">
+        Chromium.
+    </a><br/>
+    <div style='font-size:12px;'>
+        Chrome/Opera/Safari (if you must...)
+    </div>
+</h2>
+
+<p style="text-align: center">
+If you believe your browser should be supported, then please write an angry
+<a href="mailto:mtekman89@gmail.com?subject=Support My Damn Browser!">
+    email
+</a>
+or lodge an
+<a href="https://github.com/mtekman/HaploForge/issues/new?title=Support%20My%20Damn%20Browser!">
+    issue
+</a>
+on github.
+</p>
+`
+            exit(text);
         }
 
     })();
@@ -14656,6 +14689,7 @@ function onWindowLoad(){
 }
 
 onWindowLoad(); // singleton in a singleton is frowned upon
+
 
 var Resize = {
 
