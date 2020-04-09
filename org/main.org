@@ -1,0 +1,117 @@
+#+TITLE: Mehmet Tekman
+
+Hi everyone. This is a little static site about me and my interests.
+
+I've tried to keep the fanciness to a minimum, but there are small surprises here and there. This is by far not everything, but I've included repos of mine that I either dedicated a lot of time to, or am proud in some small way.
+
+
+* CV
+
+
+
+
+* Work
+
+** Motion Detection
+
++ [[https://github.com/mtekman/motiondetect][motiondetect]] :: An FCam-based CImg motion-detector for Maemo devices
+
+** Genome-wide Association Studies
+
++ [[https://github.com/mtekman/MembranousScripts][MembranousScripts]] :: Set of utilities used to perform basic allele testing and parallel processing of LocusZoom plots 
+
+** Linkage and Haplotype Analysis
+
++ [[https://github.com/mtekman/HaploForge][HaploForge]] :: with live demo here
++ [[https://github.com/mtekman/linkage_pipeline][Linkage Pipeline]] :: Shell pipeline
+
+** Variant or Sequence Analysis
+
++ [[https://bitbucket.org/momo13/ovas-pipeline/][OVAS]] :: Open-source Variant Analysis Suite, and [[https://github.com/mtekman/OVAS-ISOmaker][maker]].
+
+  + Made of the following components:
+    + [[https://github.com/mtekman/ngs_sequencing_pipeline][ngs_pipeline.sh]] :: Skeleton for NGS pipeline, now backbone of OVAS project.
+    + [[https://github.com/mtekman/funcannot][funcannot]] :: Annotates cDNA, protein, mutation type, and other funcational changes to variants in a genepender'd VCF file.
+    + [[https://github.com/mtekman/bedtarget][bedtarget]] :: Grabs regions of genetic context from UCSC databases and reformats them as BED files.
+    + [[https://github.com/mtekman/genepender][genepender]] :: Annotates (often overlapping) BED-defined regions to variants in a VCF file. Used for providing a gene/exon context to variants.
+
+** Random
+
++ [[https://github.com/mtekman/PreciseChisq][PreciseChisq]] :: An example curses program tied in with PAM authentication that executes upon (maxtry) failure
++ [[https://github.com/mtekman/bamcover][bamcover]] :: Performs basic pileup statistics of BAM files, depth and coverage. 
++ [[https://github.com/mtekman/RefGeneStats][RefGeneStats]] :: Human Genome Exon/Intron statistics from refGene 
++ [[https://github.com/mtekman/comparing_matrices_mine_grun][comparing_matrices_mine_grun]] :: A comparison of the count matrices produced by Galaxy CelSeq2 workflow, and that by MPI perl scripts, particularly with attention paid to the number of repeating elements 
+
+** Tex-related 
+
++ [[https://github.com/mtekman/poster-haploforge][poster-haploforge]] :: Latex poster for Haploforge 
++ [[https://github.com/mtekman/phd_thesis][phd_thesis]] :: Latex of PhD Thesis 
+
+
+* Hobbies
+
+** Leisure
+
++ Cycling, Snowboarding, Wandering.
+
+** Productivity
+
++ ZoteroGoogleDrive-PDFLinker :: [[https://github.com/mtekman/ZoteroGoogleDrive-PDFLinker][Local]] version, and [[https://github.com/mtekman/ZoteroGoogleDrive-PDFLinker-Cloud][Cloud]] version.
++ [[https://github.com/mtekman/ShellUtils][ShellUtils]] :: Shell functions and scripts for general work (and play) use.
+
+** Random
+
++ P2 Raycast Demo :: Raycast.js
++ [[https://github.com/mtekman/Slidey][Slidey]] :: HTML5 Slides Creator and Editor
++ TreeDemo :: Messing around with generational trees. For a much more professional outlook, see the Benchmark test in HaploForge
++ [[https://github.com/mtekman/PyFlogger][PyFlogger]] :: CLI python food logger and calorific content displayer 
++ [[https://github.com/mtekman/PAM-curses-warning-formatter][PAM-curses-warning-formatter]] :: An example curses program tied in with PAM authentication that executes upon (maxtry) failure 
++ [[https://github.com/mtekman/diaspora_installer][diaspora_installer]] :: Installer for the BattleStart Galactica Diaspora mod of the FreeSpace2 game 
++ [[https://github.com/mtekman/runescape-motiondetector][runescape-motiondetector]] :: Looks for mineable items in Runescape using OpenCV and simulates mouse clicks in Xorg 
++ [[https://github.com/mtekman/iptables-autobanner][iptables-autobanner]] :: Checks journalctl logs for forced entry and adds malicious ip to the iptables ban list, run ideally with cron.
++ [[https://github.com/mtekman/AlbumMaker][AlbumMaker]] :: Automates anonymous album creation using a dragndrop interface with unix backend. 
++ [[https://github.com/mtekman/maemo_alarm][maemo_alarm]] :: Commandline tool to interface with alarmd library on maemo. 
+
+** Emacs
+
+   #+begin_src bash :results output
+     sample="emacsrules"
+     text=$(fortune -l -n 300)
+     ind=-1
+     for word in $(echo "$text" | sed -e 's/\(.\)/\1\n/g'); do
+         if [[ $char =~ [A-Z0-9] ]]; then
+             ind=0  # reset
+             char=${sample:$ind:1}
+             echo -n ${char^^}
+         elif [[ $char =~ [a-z] ]]; then
+             ind=$(( ($ind + 1) % ${#sample} ))  # crawl
+             char=${sample:$ind:1}
+             echo -n ${char,,}
+         else
+             echo -n $char
+         fi
+         echo -n " "
+     done
+   #+end_src
+
+   #+RESULTS:
+   :
+
++ My [[https://gist.github.com/09ef535a0a44fa49ca482e84c5e9399d][emacs config]]
+
+*** Org-Mode Related
+
++ TODO :: Ideally just mentioning a github link should pull the file, pull the description, and a live demo if exists.
+
++ [[https://github.com/mtekman/org-tanglesync.el][org-mode-manager]] :: A tree-like management tool for your org-mode files
++ [[https://github.com/mtekman/org-treeusage.el][org-treeusage.el]] :: Examine the density of org headings
++ [[https://github.com/mtekman/org-treescope.el][org-treescope.el]] :: Provides a time and priority based sparse tree interaction mode
++ [[https://github.com/mtekman/org-tanglesync.el][org-tanglesync.el]] :: A package to pull external changes into an org-mode source block if that block is tangled to an external file
+
+*** Other Emacs Packages
+
++ [[https://github.com/mtekman/elisp-depmap.el][elisp-depmap.el]] :: Writes out a graphviz map based on project functions
++ [[https://github.com/mtekman/remind-bindings.el][remind-bindings.el]] :: Reminders for your init bindings
++ [[https://github.com/mtekman/terminal-toggle.el][terminal-toggle.el]] :: Elisp package for toggling a terminal
++ [[https://github.com/mtekman/wiki-drill.el][wiki-drill.el]] :: Elisp library to convert wiki-summary texts into org-drill
++ [WIP] [[https://github.com/mtekman/planemo-mode.el][planemo-mode.el]] :: A mode to generate Galaxy XML tool files
