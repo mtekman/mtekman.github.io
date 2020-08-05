@@ -7,18 +7,25 @@
 
 #+TITLE: Mehmet Tekman
 
-
 #+HTML: <div id="header"></div>
 
-
 Hi everyone. This is a little static site about me and my interests.
+This is by far not everything, but I've included repos of mine that I either dedicated a lot of time to, or am proud in some teeny tiny way.
 
-I've tried to keep the fanciness to a minimum, but there are small surprises here and there. This is by far not everything, but I've included repos of mine that I either dedicated a lot of time to, or am proud in some small way.
+* Academic CV and Publications
 
-
-#+HTML: <div id="cv"><a href="asda/main.pdf">CV</a></div>
+  If you're just here for work, here's [[file:CV/mtekman_cv.2020.pdf][my CV]]
 
 * Work
+
+** Enterprise Software
+*** Galaxy
+**** [[https://github.com/galaxyproject/tools-iuc/pulls?q=is%3Apr+author%3Amtekman][tools-iuc]]
+     The tool recipe repository: 58 closed and 6 open pull-requests
+**** [[https://github.com/galaxyproject/galaxy/pulls?q=is%3Apr+author%3Amtekman][galaxy]]
+     The core dev repository: 5 closed and 1 open pull-request
+**** [[https://github.com/galaxyproject/training-material/pulls?q=is%3Apr+author%3Amtekman][training-material]]
+     The teaching materials repository: 37 closed pull-requests
 
 ** Analysis
 *** Linkage and Haplotype Analysis
@@ -30,8 +37,6 @@ Linkage Analysis pipeline for both Autosomal and X-linked penetrances.
  Latex poster for Haploforge
 **** [[https://github.com/mtekman/phd_thesis][phd-thesis]]
  Latex of PhD Thesis
-
-
 
 *** Variant or Sequence Analysis
 **** [[https://bitbucket.org/momo13/ovas-pipeline/][OVAS]] and [[https://github.com/mtekman/OVAS-ISOmaker][OVAS-maker]]
@@ -70,19 +75,16 @@ Linkage Analysis pipeline for both Autosomal and X-linked penetrances.
 
 * Hobbies
 
-# ** Leisure
-
-# + Cycling, Snowboarding, Wandering.
+** Leisure
+   Cycling, Snowboarding, Wandering.
 
 ** Productivity
-
 *** ZoteroGoogleDrive-PDFLinker
 [[https://github.com/mtekman/ZoteroGoogleDrive-PDFLinker][Local]] version, and [[https://github.com/mtekman/ZoteroGoogleDrive-PDFLinker-Cloud][Cloud]] version.
 *** [[https://github.com/mtekman/ShellUtils][ShellUtils]]
 Shell functions and scripts for general work (and play) use.
 
 ** Random
-
 *** Games and Javascript Demos
 
 **** P2 Raycast Demo
@@ -97,7 +99,6 @@ Shell functions and scripts for general work (and play) use.
  Looks for mineable items in Runescape using OpenCV and simulates mouse clicks in Xorg
 
 *** Security
-
 **** [[https://github.com/mtekman/PAM-curses-warning-formatter][PAM-curses-warning-formatter]]
  An example curses program tied in with PAM authentication that executes upon (maxtry) failure
 **** [[https://github.com/mtekman/iptables-autobanner][iptables-autobanner]]
@@ -131,7 +132,6 @@ Shell functions and scripts for general work (and play) use.
      done
    #+end_src
 
-
 *** General Packages                                                  :other:
 **** [[https://gist.github.com/09ef535a0a44fa49ca482e84c5e9399d][emacs config]]
  My Emacs config, constantly updated, broken, updated.
@@ -164,7 +164,7 @@ Shell functions and scripts for general work (and play) use.
 
 *** Org-Mode Packages                                               :orgmode:
 
-+ TODO :: Ideally just mentioning a github link should pull the file, pull the description, and a live demo if exists.
+   + TODO :: Ideally just mentioning a github link should pull the file, pull the description, and a live demo if exists.
 
 **** [[https://github.com/mtekman/org-tanglesync.el][org-mode-manager]]
  A tree-like management tool for your org-mode files
@@ -174,3 +174,5 @@ Shell functions and scripts for general work (and play) use.
  Provides a time and priority based sparse tree interaction mode
 **** [[https://github.com/mtekman/org-tanglesync.el][org-tanglesync.el]]
  Sync changes between internal org-mode source blocks and tangled files
+**** [[https://github.com/mtekman/org-calories.el][org-calories.el]]
+ A calorie tracking food and fitness package for logging your intake/outtake
